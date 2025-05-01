@@ -1,0 +1,346 @@
+\documentclass[12pt]{article} %Tipo de documento de 11 puntos de tamallo de letra
+\usepackage[utf8]{inputenc}  % Permite escribir acentos
+\usepackage{fancyhdr} % Permite personalizar encabezados y pies de página
+\usepackage{graphicx} % Required for inserting images
+\usepackage[a4paper,top=1cm,bottom=2cm,left=2cm,right=2cm]{geometry} % Paquete geometry y configura todos los margenes
+\usepackage{forest} %Para árboles de derivación
+\usepackage{amsmath} %para escribir
+\usepackage{tcolorbox} % Agregar al preámbulo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancy} %El estilo de la página será fancy
+\fancyhf{} % Limpia (o "resetea") todas las configuraciones previas de encabezados y pies de Página.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+      % Pie de página central (número de página)
+
+\title{Tarea 1: Estructuras Discretas}
+\author{José Ángel Olmedo Guevara}
+\date{19 de Febrero de 2025}
+
+\begin{document}
+
+\maketitle %Crea títulos con sección personalizada
+\vspace{0cm}  % Agrega espacio entre el título y la frase
+\begin{flushleft} % Alinea a la izquierda
+    \textit{"He decidido ser bueno, sin el soborno del cielo"}
+    \textbf{- Bernard Shaw}
+\end{flushleft}
+
+\section*{Reflexión sobre el curso}
+
+\textbf{¿En qué fallaste la primera vez que cursaste la materia?}
+
+\textit{\\No fallé, simplemente no pude cursar ninguna asignatura de primer semestre por cuestiones de salud.}
+
+\textbf{\\¿Cómo lo piensas superar en este nuevo curso?}
+
+\textit{\\Cuidando más mi salud y poniendo mucha atención a los temas vistos en clase.}
+
+
+\section*{Ejercicio 1: }
+
+\begin{tcolorbox}[colframe=blue!50!black, colback=blue!5, title=\textbf{Gramática Propuesta}]
+\[
+\begin{aligned}
+    S &::= GS \mid DS \mid D \\
+    G &::= \#\\
+    D &::= N \mid L \\
+    N &::= 0 \mid 1 \mid 2 \mid ... \mid 9 \\
+    L &:: A \mid B \mid C \mid ... \mid Z
+\end{aligned}
+\]
+\end{tcolorbox}
+
+\subsection*{\#F71010}
+
+\begin{forest}
+[S
+    [G [\#]]
+    [S
+        [D [L ['F'] ]]
+        [S
+            [D [N ['7']]]
+            [S
+                [D [N ['1']]]
+                [S
+                    [D [N  ['0']]]
+                    [S
+                        [D [N ['1']]]
+                        [S
+                            [D [N ['0']]]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{forest}
+
+\subsection*{\#E67E22}
+
+\begin{forest}
+[S
+    [G [\#]]
+    [S
+        [D [L ['E'] ]]
+        [S
+            [D [N ['6']]]
+            [S
+                [D [N ['7']]]
+                [S
+                    [D [L  ['E']]]
+                    [S
+                        [D [N ['2']]]
+                        [S
+                            [D [N ['2']]]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{forest}
+
+\section*{Ejercicio 2: }
+
+\textit{Respetaremos la gramática haciendo cambios en las letras:}
+
+\begin{flushleft} % Alinea a la izquierda
+    \text{smiles == M} \\
+    \text{intial\_valence\_2 == A} \\
+    \text{double\_bond == B} \\
+    \text{valence\_2 == V} \\
+    \text{valence\_3 == T} \\
+    \text{valence\_4 == R}
+\end{flushleft}
+
+\begin{tcolorbox}[colframe=green!50!black, colback=green!5, title=\textbf{Gramática Propuesta}]
+\[
+\begin{aligned}
+    M &::= AB \\
+    A &::= \text{'O'} \mid \text{'S'} \\
+    B &::= \text{'='}\, V \\
+    B &::= \text{'='}\, R B \\
+    V &::= \text{'O'} \mid \text{'S'} \\
+    V &::= T \\
+    T &::= \text{'N'} \\
+    T &::= R \\
+    R &::= \text{'C'}
+\end{aligned}
+\]
+\end{tcolorbox}
+
+\subsection*{O=C=S: Sulfuro de carbono}
+
+\begin{forest}
+[M
+    [A
+        [\text{'O'}]
+    ]
+    [B
+        [\text{'='}]
+        [R
+            [\text{'C'}]
+        ]
+        [B
+            [\text{'='}]
+            [V
+                [\text{'S'}]
+            ]
+        ]
+    ]
+]
+\end{forest}
+
+\subsection*{S=C=S: Disulfuro de carbono}
+
+\begin{forest}
+[M
+    [A
+        [\text{'S'}]
+    ]
+    [B
+        [\text{'='}]
+        [R
+            [\text{'C'}]
+        ]
+        [B
+            [\text{'='}]
+            [V
+                [\text{'S'}]             
+                
+            ]
+        ]
+    ]
+]
+\end{forest}
+
+\subsection*{O=C=N: Isocianato}
+
+\begin{forest}
+[M
+    [A
+        [\text{'O'}]
+    ]
+    [B
+        [\text{'='}]
+        [R
+            [\text{'C'}]
+        ]
+        [B
+            [\text{'='}]
+            [V
+                [T
+                    [\text{'N'}]  
+                ]
+                    
+                
+            ]
+        ]
+    ]
+]
+\end{forest}
+
+\subsection*{O=C=C=C=O: Dióxido de tricarbono}
+
+\begin{forest}
+[M
+    [A
+        [\text{'O'}]
+    ]
+    [B
+        [\text{'='}]
+        [R
+            [\text{'C'}]
+        ]
+        [B
+            [\text{'='}]
+            [R [\text{'C'}]]
+            [B
+                [\text{'='}]
+                [R [\text{'C'}]]
+                [B
+                    [\text{'='}]
+                    [V [\text{'O'}]]
+                ]
+            ]           
+        ]
+    ]
+]
+\end{forest}
+
+\subsection*{O=C: Monóxido de carbono}
+
+\begin{forest}
+[M
+    [A [\text{'O'}]]
+    [B
+        [\text{'='}]
+        [V
+            [T
+                [R [\text{'C'}]]
+            ]
+        ]
+    ]
+]
+
+\end{forest}
+
+\section*{Ejercicio 3: }
+
+\begin{tcolorbox}[colframe=red!50!black, colback=red!5, title=\textbf{Gramática Propuesta}]
+\[
+\begin{aligned}
+    M &::= VCMT \mid VCM \\
+    V &::= \text{'int '} \mid \text{'float '} \\
+    C &::= S \mid L \\
+    S &::= \text{'a'} \mid \text{'b'} \mid \text{'c'} \mid \text{...} \mid \text{'z'} \\
+    L &::= SPL \mid S \\
+    P &::= \text{', '} \\
+    M &::= \text{'; '} \\
+\end{aligned}
+\]
+\end{tcolorbox}
+
+\subsection*{Ejemplo con: int a, b, c; float d, e, f; \\}
+
+\begin{forest}
+[M
+    [V [\text{'int '}]]
+    [C
+        [L
+            [S [\text{'a'}]]
+            [P [\text{', '}]]
+            [L
+                [S [\text{'b'}]]
+                [P [\text{', '}]]
+                [L 
+                    [S [\text{'c'}]]
+                ]
+            ]
+        ]
+    ]
+    [M [\text{'; '}] ]
+    [T
+        [V [\text{'float '}]]
+        [C
+            [L
+            [S [\text{'d'}]]
+            [P [\text{', '}]]
+            [L
+                [S [\text{'e'}]]
+                [P [\text{', '}]]
+                [L 
+                    [S [\text{'f'}]]
+                ]
+            ]
+        ]
+        ]
+        [M[\textbf{'; '}]]
+    ]
+]
+\end{forest}
+
+\subsection*{Ejemplo con: float m, p, q; int r, y, z; \\}
+
+\begin{forest}
+[M
+    [V [\text{'float '}]]
+    [C
+        [L
+            [S [\text{'m'}]]
+            [P [\text{', '}]]
+            [L
+                [S [\text{'p'}]]
+                [P [\text{', '}]]
+                [L 
+                    [S [\text{'q'}]]
+                ]
+            ]
+        ]
+    ]
+    [M [\text{'; '}] ]
+    [T
+        [V [\text{'int '}]]
+        [C
+            [L
+            [S [\text{'r'}]]
+            [P [\text{', '}]]
+            [L
+                [S [\text{'y'}]]
+                [P [\text{', '}]]
+                [L 
+                    [S [\text{'z'}]]
+                ]
+            ]
+        ]
+        ]
+        [M[\textbf{'; '}]]
+    ]
+]
+\end{forest}
+
+\end{document}
+

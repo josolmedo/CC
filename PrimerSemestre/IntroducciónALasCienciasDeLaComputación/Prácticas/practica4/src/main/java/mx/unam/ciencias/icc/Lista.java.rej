@@ -1,0 +1,395 @@
+--- src/main/java/mx/unam/ciencias/icc/Lista.java
++++ src/main/java/mx/unam/ciencias/icc/Lista.java
+@@ -27,6 +27,7 @@ public class Lista {
+         /* Construye un nodo con un elemento. */
+         private Nodo(Object elemento) {
+             // Aquí va su código.
++	     this.elemento = elemento;
+         }
+ 
+         /**
+@@ -35,6 +36,7 @@ public class Lista {
+          */
+         public Nodo getAnterior() {
+             // Aquí va su código.
++	    return anterior;
+         }
+ 
+         /**
+@@ -43,6 +45,7 @@ public class Lista {
+          */
+         public Nodo getSiguiente() {
+             // Aquí va su código.
++	    return siguiente;
+         }
+ 
+         /**
+@@ -51,6 +54,7 @@ public class Lista {
+          */
+         public Object get() {
+             // Aquí va su código.
++	    return elemento;
+         }
+     }
+ 
+@@ -67,6 +71,7 @@ public class Lista {
+      */
+     public int getLongitud() {
+         // Aquí va su código.
++	return longitud;
+     }
+ 
+     /**
+@@ -76,6 +81,11 @@ public class Lista {
+      */
+     public boolean esVacia() {
+         // Aquí va su código.
++	if (rabo == null){
++	    return true;
++	} else {
++	    return false;
++	}
+     }
+ 
+     /**
+@@ -86,6 +96,16 @@ public class Lista {
+      */
+     public void agregaFinal(Object elemento) {
+         // Aquí va su código.
++	 if (elemento == null)
++	    return;
++       	Nodo n = new Nodo(elemento);
++	longitud++;
++	    if ( esVacia())
++	       cabeza = rabo = n;
++	    else{rabo.siguiente = n;
++		n.anterior = rabo;
++		rabo = n;
++	    }
+     }
+ 
+     /**
+@@ -96,6 +116,16 @@ public class Lista {
+      */
+     public void agregaInicio(Object elemento) {
+         // Aquí va su código.
++	if (elemento == null)
++	    return;
++       	Nodo n = new Nodo(elemento);
++	longitud++;
++	    if ( esVacia())
++	       cabeza = rabo = n;
++	    else{cabeza.anterior = n;
++		n.siguiente = cabeza;
++		cabeza = n;
++	    }
+     }
+ 
+     /**
+@@ -112,8 +142,84 @@ public class Lista {
+      * @param elemento el elemento a insertar. El elemento se inserta únicamente
+      *                 si es distinto de <code>null</code>.
+      */
++
++      private Nodo buscaNodo (Object elemento){
++	Nodo a = cabeza;
++	while (a != null){
++	    if(a.elemento.equals(elemento)){
++		return a;
++	    }
++	    a = a.siguiente;
++	}
++	return null;
++    }
++
++
++      private Nodo buscaIesimo (int i){
++	if (i < 0 || i >= longitud)
++	    {return null;}
++    int c = 0;
++    Nodo n = cabeza;
++    while (n != null){
++	    c++;
++	    n = n.siguiente;}
++    return n;
++    }
++
++
++
++    private void eliminaNodo (Nodo n){
++	if (esVacia())
++	    cabeza = rabo = null;
++	else if (cabeza == n){
++	    cabeza = cabeza.siguiente;
++	    cabeza.anterior = null;
++	} else if (rabo == n){
++	    rabo = rabo.anterior;
++	    rabo.siguiente = null;
++	} else {
++	    Nodo s = n.siguiente;
++	    Nodo p = n.anterior;
++	    p.siguiente = s;
++	    s.anterior = p;
++	}
++    }
++
++
++
++     private Nodo getNodo(int i) {
++	Nodo a = cabeza;
++	int c = 0;
++	while (c != i) {
++	    a = a.siguiente;
++	    c++;
++	}
++	return a;
++    }   
++
++
++
++    
+     public void inserta(int i, Object elemento) {
+         // Aquí va su código.
++	if (elemento == null){
++	    return;
++	}
++	if (i <= 0){
++	    agregaInicio(elemento);
++	}else if (i >= longitud){
++	    agregaFinal(elemento);
++	}else {
++	    Nodo n = new Nodo(elemento);
++	    Nodo m = cabeza;
++	    for(int j=0; j<i; j++)
++		m = m.siguiente;
++	    n.anterior = m.anterior;
++	    n.siguiente = m;
++	    m.anterior.siguiente = n;
++	    m.anterior = n;
++	    longitud++;
++	}
+     }
+ 
+     /**
+@@ -123,6 +229,19 @@ public class Lista {
+      */
+     public void elimina(Object elemento) {
+         // Aquí va su código.
++	Nodo x  = cabeza;
++	while (x!= null){
++	   if (x.elemento.equals(elemento)){
++	    if (x == cabeza){
++		eliminaPrimero();}
++	    else if (x == rabo){eliminaUltimo();}
++	else {	x.anterior.siguiente = x.siguiente;
++		x.siguiente.anterior = x.anterior;
++		longitud--;}
++	    return;
++	   }
++	     x = x.siguiente;
++	}
+     }
+ 
+     /**
+@@ -132,6 +251,19 @@ public class Lista {
+      */
+     public Object eliminaPrimero() {
+         // Aquí va su código.
++	if (esVacia()){
++	    return null;
++	}
++	Object elemento = cabeza.elemento;
++	if (cabeza==rabo){
++	    cabeza = null;
++	    rabo = null;
++	}else {
++	    cabeza = cabeza.siguiente;
++	    cabeza.anterior = null;
++	}
++	longitud--;
++	return elemento;
+     }
+ 
+     /**
+@@ -141,6 +273,19 @@ public class Lista {
+      */
+     public Object eliminaUltimo() {
+         // Aquí va su código.
++	if (esVacia()){
++	    return null;
++	}
++	Object elemento = rabo.elemento;
++	if (rabo==cabeza){
++	    rabo = null;
++	    cabeza = null;
++	}else{
++	    rabo = rabo.anterior;
++	    rabo.siguiente = null;
++	}
++	longitud--;
++	return elemento;
+     }
+ 
+     /**
+@@ -151,6 +296,11 @@ public class Lista {
+      */
+     public boolean contiene(Object elemento) {
+         // Aquí va su código.
++  	Nodo n = buscaNodo (elemento);
++	if (n == null)
++	    return false;
++	else
++	    return true;
+     }
+ 
+     /**
+@@ -159,6 +309,15 @@ public class Lista {
+      */
+     public Lista reversa() {
+         // Aquí va su código.
++	 Lista lista = new Lista();
++	Nodo x = rabo;
++	int y =0;
++	while (x != null){
++  	    lista.inserta(y, x.elemento);
++	    x = x.anterior;
++	    y++;
++    }
++	return lista;
+     }
+ 
+     /**
+@@ -168,6 +327,15 @@ public class Lista {
+      */
+     public Lista copia() {
+         // Aquí va su código.
++	 Lista lista = new Lista();
++	Nodo x = cabeza;
++	int y = 0;
++	while (x != null){
++  	    lista.inserta(y, x.elemento);
++	    x = x.siguiente;
++	    y++;
++    }
++	return lista;
+     }
+ 
+     /**
+@@ -175,6 +343,8 @@ public class Lista {
+      */
+     public void limpia() {
+         // Aquí va su código.
++	cabeza = rabo = null;
++	longitud = 0;
+     }
+ 
+     /**
+@@ -184,6 +354,10 @@ public class Lista {
+      */
+     public Object getPrimero() {
+         // Aquí va su código.
++	if (cabeza == null)
++	    return null;
++	else
++	    return cabeza.elemento;
+     }
+ 
+     /**
+@@ -193,6 +367,10 @@ public class Lista {
+      */
+     public Object getUltimo() {
+         // Aquí va su código.
++	if (rabo == null)
++	    return null;
++	else
++	    return rabo.elemento;
+     }
+ 
+     /**
+@@ -204,6 +382,15 @@ public class Lista {
+      */
+     public Object get(int i) {
+         // Aquí va su código.
++	if (i < 0 || i >= longitud)
++	    return null;
++        Nodo a = cabeza;
++	int c = 0;
++	while (c != i){
++	    a = a.siguiente;
++	    c++;
++	}
++	return a.elemento;
+     }
+ 
+     /**
+@@ -214,6 +401,15 @@ public class Lista {
+      */
+     public int indiceDe(Object elemento) {
+         // Aquí va su código.
++        Nodo a = cabeza;
++	int indice = 0;
++	while (a != null){
++	    if (a.elemento.equals(elemento))
++		return indice;
++	    a = a.siguiente;
++	    indice++;
++	}
++	return -1;
+     }
+ 
+     /**
+@@ -222,6 +418,14 @@ public class Lista {
+      */
+     @Override public String toString() {
+         // Aquí va su código.
++	 if (esVacia())
++	    return "[]";
++	String sb = "[";
++          for (int i = 0; i < longitud-1; i++)
++	    sb += String.format("%s, ", get(i));
++	    sb += String.format("%s]", get(longitud-1));
++	return sb;
++
+     }
+ 
+     /**
+@@ -235,14 +439,30 @@ public class Lista {
+             return false;
+         Lista lista = (Lista)objeto;
+         // Aquí va su código.
++        if(lista == null) return false;
++        else if( lista.getLongitud() != longitud) return false;
++        else if(lista.getLongitud() == 0 && longitud == 0) return true;
++        Nodo nodo = cabeza;
++        int i = 0;
++        while(nodo != null){
++          if(nodo.elemento.equals(lista.get(i)) == false) return false;
++          nodo = nodo.siguiente;
++          i++;
++    }
++	return true;
+     }
+ 
+     /**
+      * Regresa el nodo cabeza de la lista.
+      * @return el nodo cabeza de la lista.
+      */
+-    public Nodo getCabeza() {
+-        // Aquí va su código.
++	/* public Nodo getCabeza(){
++	return cabeza;
++	}*/
++
++	  public Nodo getCabeza() {
++        return cabeza; 
++
+     }
+ 
+     /**
+@@ -251,5 +471,6 @@ public class Lista {
+      */
+     public Nodo getRabo() {
+         // Aquí va su código.
++	return rabo;
+     }
+ }

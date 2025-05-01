@@ -1,0 +1,183 @@
+--- src/main/java/mx/unam/ciencias/icc/Estudiante.java
++++ src/main/java/mx/unam/ciencias/icc/Estudiante.java
+@@ -28,7 +28,10 @@ public class Estudiante implements Registro {
+                       int    cuenta,
+                       double promedio,
+                       int    edad) {
+-        // Aquí va su código.
++	this.nombre=nombre;
++	this.cuenta=cuenta;
++	this.promedio=promedio;
++	this.edad=edad;
+     }
+ 
+     /**
+@@ -36,7 +39,7 @@ public class Estudiante implements Registro {
+      * @return el nombre del estudiante.
+      */
+     public String getNombre() {
+-        // Aquí va su código.
++	return nombre;
+     }
+ 
+     /**
+@@ -44,7 +47,7 @@ public class Estudiante implements Registro {
+      * @param nombre el nuevo nombre del estudiante.
+      */
+     public void setNombre(String nombre) {
+-        // Aquí va su código.
++        this.nombre=nombre;
+     }
+ 
+     /**
+@@ -52,7 +55,7 @@ public class Estudiante implements Registro {
+      * @return el número de cuenta del estudiante.
+      */
+     public int getCuenta() {
+-        // Aquí va su código.
++	return cuenta;
+     }
+ 
+     /**
+@@ -60,7 +63,7 @@ public class Estudiante implements Registro {
+      * @param cuenta el nuevo número de cuenta del estudiante.
+      */
+     public void setCuenta(int cuenta) {
+-        // Aquí va su código.
++	this.cuenta=cuenta;
+     }
+ 
+     /**
+@@ -68,7 +71,7 @@ public class Estudiante implements Registro {
+      * @return el promedio del estudiante.
+      */
+     public double getPromedio() {
+-        // Aquí va su código.
++	return promedio;
+     }
+ 
+     /**
+@@ -76,7 +79,7 @@ public class Estudiante implements Registro {
+      * @param promedio el nuevo promedio del estudiante.
+      */
+     public void setPromedio(double promedio) {
+-        // Aquí va su código.
++	this.promedio=promedio;
+     }
+ 
+     /**
+@@ -84,7 +87,7 @@ public class Estudiante implements Registro {
+      * @return la edad del estudiante.
+      */
+     public int getEdad() {
+-        // Aquí va su código.
++        return edad;
+     }
+ 
+     /**
+@@ -92,7 +95,7 @@ public class Estudiante implements Registro {
+      * @param edad la nueva edad del estudiante.
+      */
+     public void setEdad(int edad) {
+-        // Aquí va su código.
++	this.edad=edad;
+     }
+ 
+     /**
+@@ -100,7 +103,12 @@ public class Estudiante implements Registro {
+      * @return una representación en cadena del estudiante.
+      */
+     @Override public String toString() {
+-        // Aquí va su código.
++	String cadena = String.format("Nombre   : %s\n" +
++                               "Cuenta   : %09d\n" +
++                               "Promedio : %2.2f\n" +
++                               "Edad     : %d",
++                               nombre, cuenta, promedio, edad);
++	return cadena;
+     }
+ 
+     /**
+@@ -115,7 +123,10 @@ public class Estudiante implements Registro {
+         if (!(objeto instanceof Estudiante))
+             return false;
+         Estudiante estudiante = (Estudiante)objeto;
+-        // Aquí va su código.
++       	return this.nombre.equals(estudiante.nombre) &&
++	    this.cuenta == estudiante.cuenta &&
++	    this.promedio == estudiante.promedio &&
++	    this.edad == estudiante.edad;        
+     }
+ 
+     /**
+@@ -125,7 +136,9 @@ public class Estudiante implements Registro {
+      * @return la seriación del estudiante en una línea de texto.
+      */
+     @Override public String seria() {
+-        // Aquí va su código.
++	String linea = String.format("%s\t%d\t%2.2f\t%d\n",
++                                     nombre, cuenta, promedio, edad);
++	return linea;
+     }
+ 
+     /**
+@@ -136,10 +149,26 @@ public class Estudiante implements Registro {
+      * @throws ExcepcionLineaInvalida si la línea recibida es nula, vacía o no
+      *         es una seriación válida de un estudiante.
+      */
+-    @Override public void deseria(String linea) {
+-        // Aquí va su código.
++    @Override public void deseria(String linea) throws ExcepcionLineaInvalida{
++    	if (linea == null){
++	       throw new ExcepcionLineaInvalida();
++        }
++        String[] partes = linea.trim().split("\t");
++        if (partes.length != 4){
++    	    throw new ExcepcionLineaInvalida();
++    	}
++        try {
++    	    this.nombre = partes[0];
++    	    this.cuenta = Integer.parseInt(partes[1]);
++            this.promedio = Double.parseDouble(partes[2]);
++            this.edad = Integer.parseInt(partes[3]);
++    	} catch (Exception e) {
++            throw new ExcepcionLineaInvalida();
++    	}
+     }
+ 
++    
++
+     /**
+      * Nos dice si el estudiante casa el valor dado en el campo especificado.
+      * @param campo el campo que hay que casar.
+@@ -167,10 +196,25 @@ public class Estudiante implements Registro {
+      *         CampoEstudiante}.
+      */
+     @Override public boolean casa(Enum campo, Object valor) {
+-        if (!(campo instanceof CampoEstudiante))
+-            throw new IllegalArgumentException("El campo debe ser " +
+-                                               "CampoEstudiante");
+-        CampoEstudiante c = (CampoEstudiante)campo;
+-        // Aquí va su código.
++	if (!(campo instanceof CampoEstudiante))
++	    throw new IllegalArgumentException("El campo debe ser CampoEstudiante");
++	CampoEstudiante c = (CampoEstudiante) campo;
++	switch (c) {
++        case NOMBRE:
++            if (!(valor instanceof String))
++                return false;
++            String s = (String) valor;
++	    if (s.isEmpty())
++                return false;
++            return nombre.contains(s);
++        case CUENTA:
++            return (valor instanceof Integer) && (cuenta >= (Integer) valor);
++        case PROMEDIO:
++            return (valor instanceof Double) && (promedio >= (Double) valor);
++        case EDAD:
++            return (valor instanceof Integer) && (edad >= (Integer) valor);
++        default:
++            throw new IllegalArgumentException("Campo no válido");
++	}
+     }
+ }

@@ -1,0 +1,120 @@
+--- src/main/java/mx/unam/ciencias/icc/BaseDeDatos.java
++++ src/main/java/mx/unam/ciencias/icc/BaseDeDatos.java
+@@ -22,7 +22,7 @@ public abstract class BaseDeDatos {
+      * Constructor único.
+      */
+     public BaseDeDatos() {
+-        // Aquí va su código.
++    	registros=new Lista();
+     }
+ 
+     /**
+@@ -30,7 +30,7 @@ public abstract class BaseDeDatos {
+      * @return el número de registros en la base de datos.
+      */
+     public int getNumRegistros() {
+-        // Aquí va su código.
++        return registros.getLongitud();
+     }
+ 
+     /**
+@@ -39,7 +39,12 @@ public abstract class BaseDeDatos {
+      * @return una lista con los registros en la base de datos.
+      */
+     public Lista getRegistros() {
+-        // Aquí va su código.
++        Lista copia=new Lista();
++        int longitud=registros.getLongitud();
++        for(int i=0; i<longitud; i++){
++            copia.agregaFinal(registros.get(i));
++    	}
++        return copia;	    
+     }
+ 
+     /**
+@@ -47,7 +52,7 @@ public abstract class BaseDeDatos {
+      * @param registro el registro que hay que agregar a la base de datos.
+      */
+     public void agregaRegistro(Registro registro) {
+-        // Aquí va su código.
++        registros.agregaFinal(registro);
+     }
+ 
+     /**
+@@ -55,14 +60,15 @@ public abstract class BaseDeDatos {
+      * @param registro el registro que hay que eliminar de la base de datos.
+      */
+     public void eliminaRegistro(Registro registro) {
+-        // Aquí va su código.
++        registros.elimina(registro);
+     }
+ 
+     /**
+      * Limpia la base de datos.
+      */
+     public void limpia() {
+-        // Aquí va su código.
++	registros.limpia();
++	//registros=new Lista();
+     }
+ 
+     /**
+@@ -71,7 +77,18 @@ public abstract class BaseDeDatos {
+      * @throws IOException si ocurre un error de entrada/salida.
+      */
+     public void guarda(BufferedWriter out) throws IOException {
+-        // Aquí va su código.
++        int longitud = registros.getLongitud();
++        for (int i = 0; i < longitud; i++) {
++            Estudiante e = (Estudiante) registros.get(i);
++            String linea = String.format("%s\t%d\t%2.2f\t%d",
++                                            e.getNombre(),
++                                            e.getCuenta(),
++                                            e.getPromedio(),
++                                            e.getEdad());
++            out.write(linea);
++            out.newLine();
++        }
++        out.flush();
+     }
+ 
+     /**
+@@ -82,7 +99,21 @@ public abstract class BaseDeDatos {
+      * @throws IOException si ocurre un error de entrada/salida.
+      */
+     public void carga(BufferedReader in) throws IOException {
+-        // Aquí va su código.
++    	limpia();
++        String linea;
++        while ((linea = in.readLine()) != null) {
++            linea = linea.trim();
++            if (linea.isEmpty()) {
++                break; // Ignora líneas vacías
++            }
++            try {
++                Registro registro = creaRegistro();
++                registro.deseria(linea);
++                agregaRegistro(registro);
++            } catch (ExcepcionLineaInvalida e) {
++                throw new IOException();
++            }
++        }
+     }
+ 
+     /**
+@@ -95,7 +126,14 @@ public abstract class BaseDeDatos {
+      *         correcta.
+      */
+     public Lista buscaRegistros(Enum campo, Object valor) {
+-        // Aquí va su código.
++        Lista resultados = new Lista();
++        int n = registros.getLongitud();
++        for (int i = 0; i < n; i++) {
++            Registro r = (Registro) registros.get(i);
++            if (r.casa(campo, valor))
++                resultados.agregaFinal(r);
++        }
++        return resultados;
+     }
+ 
+     /**

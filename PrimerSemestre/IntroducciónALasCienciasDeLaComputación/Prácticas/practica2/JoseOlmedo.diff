@@ -1,0 +1,588 @@
+diff --git a/src/main/java/mx/unam/ciencias/icc/Estudiante.java b/src/main/java/mx/unam/ciencias/icc/Estudiante.java
+index bc7557e..4a6a249 100644
+--- a/src/main/java/mx/unam/ciencias/icc/Estudiante.java
++++ b/src/main/java/mx/unam/ciencias/icc/Estudiante.java
+@@ -4,16 +4,16 @@ package mx.unam.ciencias.icc;
+  * Clase para representar estudiantes. Un estudiante tiene nombre, número de
+  * cuenta, promedio y edad.
+  */
+-public class Estudiante {
++public class Estudiante { //Definimos la clase Estudiante, serà de acceso pùblico por lo que podremos acceder en cualquier parte del programa
+ 
+     /* Nombre del estudiante. */
+-    private String nombre;
++    private String nombre; //Tipo cadena, de acceso privado
+     /* Número de cuenta. */
+-    private int cuenta;
+-    /* Pormedio del estudiante. */
+-    private double promedio;
++    private int cuenta; //Tipo entero de acceso privado
++    /* Promedio del estudiante. */
++    private double promedio; //Tipo doble de acceso privado
+     /* Edad del estudiante.*/
+-    private int edad;
++    private int edad; //Tipo entero de acceso privado
+ 
+     /**
+      * Define el estado inicial de un estudiante.
+@@ -22,10 +22,14 @@ public class Estudiante {
+      * @param promedio el promedio del estudiante.
+      * @param edad la edad del estudiante.
+      */
+-    public Estudiante(String nombre,
++    public Estudiante(String nombre, //Definimos al constructor de mi clase Estudiante con los parametros especificados.
+                       int    cuenta,
+                       double promedio,
+                       int    edad) {
++        this.nombre=nombre; //Hacemos referencia a la variable de clase = Hacemos referencia al atributo del constructor.
++        this.cuenta=cuenta; //Hacemos referencia a la variable de clase = Hacemos referencia al atributo del constructor.
++        this.promedio=promedio; //Hacemos referencia a la variable de clase = Hacemos referencia al atributo del constructor.
++        this.edad=edad; // Hacemos referencia a la variable de clase = Hacemos referencia al atributo del constructor.
+         // Aquí va su código.
+     }
+ 
+@@ -33,72 +37,84 @@ public class Estudiante {
+      * Regresa el nombre del estudiante.
+      * @return el nombre del estudiante.
+      */
+-    public String getNombre() {
+-        // Aquí va su código.
++    public String getNombre() { //Getter, es un mètodo pùblico que devuelve una cadena, por eso usamos la palabra reservada return.
++        return nombre; //Regresa el nombre
+     }
+ 
+     /**
+      * Define el nombre del estudiante.
+      * @param nombre el nuevo nombre del estudiante.
+      */
+-    public void setNombre(String nombre) {
+-        // Aquí va su código.
++    public void setNombre(String nombre) { //Setter, es un mètodo pùblico que no devuelve nada, tiene como argumento el nombre (cadena)
++        this.nombre = nombre; //Referencia al nombre.
+     }
+ 
+     /**
+      * Regresa el número de cuenta del estudiante.
+      * @return el número de cuenta del estudiante.
+      */
+-    public int getCuenta() {
+-        // Aquí va su código.
++    public int getCuenta() { //Getter, es un mètodo pùblico que devuelve un entero y no recibe argumentos
++        return cuenta;// Aquí va su código.  Devuelve el nùmero de cuenta.
+     }
+ 
+     /**
+      * Define el número cuenta del estudiante.
+      * @param cuenta el nuevo número de cuenta del estudiante.
+      */
+-    public void setCuenta(int cuenta) {
+-        // Aquí va su código.
++    public void setCuenta(int cuenta) { //Setter, es un mètodo pùblico que no devuelve nada, recibe como argumentos el nùmero de cuenta
++        this.cuenta=cuenta;// Aquí va su código  Asigna el nùmero de cuenta en caso de querer modificar la referencia a un objeto.
+     }
+ 
+     /**
+      * Regresa el promedio del estudiante.
+      * @return el promedio del estudiante.
+      */
+-    public double getPromedio() {
+-        // Aquí va su código.
++    public double getPromedio() {  //Getter, mètodo pùblico que devuelve un dobule, es decir, el promedio
++        return promedio;// Aquí va su código. Devuelve el promedio
+     }
+ 
+     /**
+      * Define el promedio del estudiante.
+      * @param promedio el nuevo promedio del estudiante.
+      */
+-    public void setPromedio(double promedio) {
+-        // Aquí va su código.
++    public void setPromedio(double promedio) { //Setter, mètodo pùblico que no devuelve nada, tiene como argumento el promedio, permite modificar un atributo del objeto.
++        this.promedio=promedio;// Aquí va su código.
+     }
+ 
+     /**
+      * Regresa la edad del estudiante.
+      * @return la edad del estudiante.
+      */
+-    public int getEdad() {
+-        // Aquí va su código.
++    public int getEdad() { //Getter, mètodo pùblico que devuelve un entero, sin argumentos y sirve para acceder a la edad del estudiante
++        return edad;// Aquí va su código.
+     }
+ 
+     /**
+      * Define la edad del estudiante.
+      * @param edad la nueva edad del estudiante.
+      */
+-    public void setEdad(int edad) {
+-        // Aquí va su código.
++    public void setEdad(int edad) { //Setter, mètodo pùblico que no devuelve nada, recibe como argumentos la edad y sirve para modificar dicho atributo del objeto.
++        this.edad=edad;// Aquí va su código.
+     }
+ 
+     /**
+      * Regresa una representación en cadena del estudiante.
+      * @return una representación en cadena del estudiante.
+      */
+-    public String toString() {
+-        // Aquí va su código.
++    public String toString() { //Metodo toString, mètodo pùblico que devolverá una cadena acorde al formato solictado en los test unitarios
++        String cadena = String.format("Nombre   : %s\n" +
++                               "Cuenta   : %09d\n" +
++                               "Promedio : %2.2f\n" +
++                               "Edad     : %d",
++                               nombre, cuenta, promedio, edad);
++	 /**
++     * %s Regresa un String, %09d regresa 9 digitos, %2.2f regresa dos numeros antes y despues del punto, %d devuelve el entero.
++     * @return una representación en cadena del estudiante.
++     */
++	
++	return  cadena;
++
++// return "Nombre : " + nombre + ", Cuenta : " + cuenta + ", Promedio : " + promedio + ", Edad : " + edad; este no paso la prueba unitaria
+     }
+ 
+     /**
+@@ -109,7 +125,13 @@ public class Estudiante {
+      *         propiedades que el estudiante que manda llamar al método,
+      *         <code>false</code> en otro caso.
+      */
+-    public boolean equals(Estudiante estudiante) {
+-        // Aquí va su código.
+-    }
++    public boolean equals(Estudiante estudiante) { //Método equals, devuelve True o False, recibe como parametro un objeto de la clase estudiante 
++        if (estudiante == null) {  //Devolverá false en caso de que el objeto sea nulo (o sea no tenga nada)
++            return false;
++        }
++        return this.nombre.equals(estudiante.nombre) &&    //una variación es if ondiciones, true                     
++               this.cuenta == estudiante.cuenta &&                              
++               this.promedio == estudiante.promedio &&                          
++               this.edad == estudiante.edad;// Aquí va su código.              
++    }                                                                
+ }
+diff --git a/src/main/java/mx/unam/ciencias/icc/ListaEstudiante.java b/src/main/java/mx/unam/ciencias/icc/ListaEstudiante.java
+index c7609f1..d37a723 100644
+--- a/src/main/java/mx/unam/ciencias/icc/ListaEstudiante.java
++++ b/src/main/java/mx/unam/ciencias/icc/ListaEstudiante.java
+@@ -13,6 +13,10 @@ package mx.unam.ciencias.icc;
+  * <p>Los elementos en una lista de estudiantes siempre son instancias de la
+  * clase {@link Estudiante}.</p>
+  */
++
++/**Comentario personal, al parecer la práctica implementa listas doblemente ligadas, cada elemento de la lista tiene una referencia tanto al elemento anterior como al elemento siguiente.
++
++Practica realizada por: José Ángel Olmedo Guevara**/
+ public class ListaEstudiante {
+ 
+     /**
+@@ -29,7 +33,9 @@ public class ListaEstudiante {
+ 
+         /* Construye un nodo con un elemento. */
+         private Nodo(Estudiante elemento) {
+-            // Aquí va su código.
++
++	    this.elemento=elemento; // Construye al nodo con el parámetro recibido (un objeto de la clase estudiante)
++           
+         }
+ 
+         /**
+@@ -37,7 +43,9 @@ public class ListaEstudiante {
+          * @return el nodo anterior del nodo.
+          */
+         public Nodo getAnterior() {
+-            // Aquí va su código.
++
++	    return anterior; //Devuelve el elemento anterior
++            
+         }
+ 
+         /**
+@@ -45,7 +53,7 @@ public class ListaEstudiante {
+          * @return el nodo siguiente del nodo.
+          */
+         public Nodo getSiguiente() {
+-            // Aquí va su código.
++            return siguiente;// Devuelve el elemento siguiente
+         }
+ 
+         /**
+@@ -53,7 +61,7 @@ public class ListaEstudiante {
+          * @return el elemento del nodo.
+          */
+         public Estudiante get() {
+-            // Aquí va su código.
++            return elemento;// Devuelve el elemento.
+         }
+     }
+ 
+@@ -69,7 +77,7 @@ public class ListaEstudiante {
+      * @return la longitud de la lista, el número de elementos que contiene.
+      */
+     public int getLongitud() {
+-        // Aquí va su código.
++        return longitud;// Devuelve la longitud de la lista.
+     }
+ 
+     /**
+@@ -78,7 +86,7 @@ public class ListaEstudiante {
+      *         otro caso.
+      */
+     public boolean esVacia() {
+-        // Aquí va su código.
++	return longitud==0; //Si su longitud es vacía devolvera True
+     }
+ 
+     /**
+@@ -88,7 +96,26 @@ public class ListaEstudiante {
+      *                 si es distinto de <code>null</code>.
+      */
+     public void agregaFinal(Estudiante elemento) {
+-        // Aquí va su código.
++        if(elemento==null){ //Si el elemento es null (vacío)
++	    return;//no hacer nada xD
++	}
++	if(esVacia()){//Usamos el mètodo anterior, en otras palabras si la lista es vacìa
++
++	    Nodo n=new Nodo(elemento); //Creamos un nuevo objeto nodo (contiene al nuevo elemento (estudiante) para poder iterar sobre la lista)
++	    cabeza=n;
++	    rabo=n;
++	    longitud=longitud+1;
++	}
++	else{//Osea si la lista no es vacìa
++	    Nodo n = new Nodo(elemento);
++	    rabo.siguiente = n; // Enlaza el último nodo al nuevo
++	    n.anterior = rabo;  // El nuevo nodo apunta al antiguo rabo
++	    rabo = n;           // Actualiza rabo al nuevo nodo
++	    longitud++;
++	    /*Nodo n=new Nodo(elemento);
++	    rabo=n;
++	    longitud++;*/
++	}
+     }
+ 
+     /**
+@@ -98,7 +125,23 @@ public class ListaEstudiante {
+      *                 si es distinto de <code>null</code>.
+      */
+     public void agregaInicio(Estudiante elemento) {
+-        // Aquí va su código.
++	if(elemento==null){
++	    return; //no hacer nada xD
++	}// Aquí va su código.
++	if(esVacia()){//Usamos el mètodo anterior, en otras palabras si la lista es vacìa
++	    Nodo n=new Nodo(elemento); //Creamos un nuevo objeto nodo (contiene al nuevo elemento (estudiante) para poder iterar sobre la lista)
++	    cabeza=n;
++	    rabo=n;
++	    longitud=longitud+1;
++	}
++	else{//Osea si la lista no es vacìa
++	    Nodo n=new Nodo(elemento);
++	    cabeza.anterior=n;
++	    n.siguiente=cabeza;
++	    cabeza=n;
++	    longitud=longitud+1;
++	    // Aquí va su código.
++	}
+     }
+ 
+     /**
+@@ -106,7 +149,7 @@ public class ListaEstudiante {
+      *
+      * Si el índice es menor o igual que cero, el elemento se agrega al inicio
+      * de la lista. Si el índice es mayor o igual que el número de elementos en
+-     * la lista, el elemento se agrega al fina de la misma. En otro caso,
++     * la lista, el elemento se agrega al final de la misma. En otro caso,
+      * después de mandar llamar el método, el elemento tendrá el índice que se
+      * especifica en la lista.
+      * @param i el índice dónde insertar el elemento. Si es menor que 0 el
+@@ -116,7 +159,28 @@ public class ListaEstudiante {
+      *                 si es distinto de <code>null</code>.
+      */
+     public void inserta(int i, Estudiante elemento) {
+-        // Aquí va su código.
++	if(elemento==null){
++	    return;
++	}
++	if(i<=0){
++	    agregaInicio(elemento);//Llamamos al método anterior para colocarlo en el inicio
++	    
++	}
++	else if(i>=longitud){
++	    agregaFinal(elemento); //Llamamos al método anterior para colocarlo al final
++	}
++	else{
++	    Nodo insertar=new Nodo(elemento);
++	    Nodo iterable=cabeza; // Creo un objeto nuevo de la clase nodo llamado actual, será igual a el primer elemento de mi lista
++	    for(int j=0; j<i; j++) //Ciclo para iterar desde el inicio  hasta la posición anterior a la que queremos llegar
++		iterable=iterable.siguiente; //el nodo actual irá cambiando al siguiente de su posición
++	    insertar.anterior=iterable.anterior; //hago que mi elemento anterior al nuevo elemento que voy a insertar sea el elemento anterior del nodo (elemento) con el que iteré
++            insertar.siguiente=iterable; //hago que mi elemento siguiente al nuevo elemento que voy a insertar sea igual al elemento (nodo) con el que iteré (terminé en la posición que deseo que esté mi nuevo elemento)
++            iterable.anterior.siguiente=insertar; //hago que el elemento (nodo) que precedía al iterable ahora tenga como siguiente al nodo que estamos insertando.
++            iterable.anterior=insertar; //hago que el elemento (nodo) anterior a mi nodo de iteración sea el elemento (nodo) que quiero insertar.
++            longitud++; //actualizo la longitud de mi lista.
++	    /**Ejmplo: Deseo insertar D en 3 [A, B, C, E], en la cero iteración 'iterable' será B, en la primer iteración 'iterable' será C, en la segunda y última iteración 'iterable' será E, en la siguiente línea de código hago que mi nodo 'insertar', que tiene como elemento a D, su anterior sea el nodo anterior de mi nodo de iteración 'iterable' (recordemos que 'iterable' tiene a E), entonces C-D, posteriormente hago que  mi nodo que tiene como elemento D su siguiente nodo u elemento sea E (C-D-E). Como es una lista doblemente ligada, en la siguiente línea de código hago que el nodo (elmento) siguiente que precedía mi nodo de iteración (recordemos que terminamos en E) sea el nodo (elemento) que voy a insertar, osea D (Hago que D vaya despues que C y así, C-D). Finalmente hago que el elemento anterior a mi nodo de iteración 'iterable' sea el elemento que voy a insertar (D) (recordemos que 'iterable' era E y ahora será D **/
++	}
+     }
+ 
+     /**
+@@ -125,7 +189,24 @@ public class ListaEstudiante {
+      * @param elemento el elemento a eliminar.
+      */
+     public void elimina(Estudiante elemento) {
+-        // Aquí va su código.
++
++	Nodo iterable = cabeza; //Generamos un nodo iterable que sea igual al primer elemento de la lista
++        while (iterable != null) { //Ciclo para interar mientras que el nodo 'iterable' sea diferente de nulo
++            if (iterable.elemento.equals(elemento)){ //Si el parametro de mi nodo iterable es igual al argumento de mi función elimina
++                if (iterable==cabeza) { //En caso de que el elemento a eliminar sea el primero de mi lista
++                    eliminaPrimero(); //utilizamos el método de eliminaPrimero()
++                } else if (iterable==rabo) { //En caso de que el lemento a eliminar sea el último de mi lista
++                    eliminaUltimo(); //utilizamos el método elminaUltimo
++                } else { //En caso de que no sea ni el primero ni el último elmento de mi lista
++                    iterable.anterior.siguiente = iterable.siguiente; //Hacemos que el nodo siguiente al nodo previo de mi nodo de iteración sea el nodo siguiente de mi nodo de iteración.
++                    iterable.siguiente.anterior = iterable.anterior; //Hacemos que el nodo anterior al nodo siguiente de mi nodo de iteración sea el nodo anterior de mi nodo de iteración
++		    /*Haciendo esto, desligo el nodo que queremos eliminar de la lista de estudiantes. */
++                    longitud--; //Disminuimos la longitud en 1
++                }
++                return; //no regresa nada
++            }
++            iterable=iterable.siguiente; //En dado caso no se cumpla que mi nodo 'iterable' contenga al elemento que deseamos eliminar, nos moveremos al siguiente nodo y repetimos el ciclo
++        }
+     }
+ 
+     /**
+@@ -134,7 +215,20 @@ public class ListaEstudiante {
+      *         <code>null</code> si la lista es vacía.
+      */
+     public Estudiante eliminaPrimero() {
+-        // Aquí va su código.
++        if(longitud==0){ //Si la lista es vacía
++	    return null; //Regresaremos null
++	}
++	Estudiante e=cabeza.elemento;//accedo al elemento de cabeza, (ya que es un objeto de la clase Nodo y contiene como atributo a elemento) el elemento será el parámetro del objeto e de la clase estudiante
++	if(cabeza==rabo){//En dado caso que la lista tenga solo un elemento
++	    cabeza=null; //eliminamos el primer elemento de la cabeza y
++	    rabo=null; //elminamos el último elemento de la cabeza.
++	}
++	else{
++	    cabeza=cabeza.siguiente; //Hacemos que la nueva cabeza (primer elemento de la lista) sea ahora el segundo elemento de la lista
++	    cabeza.anterior=null; //eliminamos el elemento anterior a la nueva cabeza de la lista.
++	}
++	longitud=longitud-1; //reducimos la longitud de la lista en 1
++	return e; //regresamos el elemento a eliminar
+     }
+ 
+     /**
+@@ -143,7 +237,20 @@ public class ListaEstudiante {
+      *         <code>null</code> si la lista es vacía.
+      */
+     public Estudiante eliminaUltimo() {
+-        // Aquí va su código.
++        if(esVacia()){ //Si la lista es vacía
++	    return null; //Regresaremos null
++	}
++	Estudiante e=rabo.elemento;//accedo al elemento de rabo, (ya que es un objeto de la clase Nodo y contiene como atributo a elemento) el elemento será el parámetro del objeto e de la clase estudiante
++	if(cabeza==rabo){//En dado caso que la lista tenga solo un elemento
++	    cabeza=null; //eliminamos el primer elemento de la cabeza y
++	    rabo=null; //elminamos el último elemento de la cabeza.
++	}
++	else{
++	    rabo=rabo.anterior; //Hacemos que el nuevo rabo (último elemento de la lista) sea ahora el penúltimo elemento de la lista.
++	    rabo.siguiente=null; //eliminamos el elemento siguiente al nuevo rabo de la lista.
++	}
++	longitud=longitud-1; //reducimos la longitud de la lista en 1
++	return e; //regresamos el elemento a eliminar
+     }
+ 
+     /**
+@@ -153,7 +260,17 @@ public class ListaEstudiante {
+      *         <code>false</code> en otro caso.
+      */
+     public boolean contiene(Estudiante elemento) {
+-        // Aquí va su código.
++
++	Nodo iterable = cabeza; //Creamos un nodo para comenzar a iterar desde la cabeza
++        while (iterable != null) { //Ciclo mientras el nodo de iteración no este vacío
++            if (iterable.elemento.equals(elemento)) //Si el contenido de mi nodo es igual a el parámetro del método devolverá true
++                return true;
++            iterable = iterable.siguiente; //Vamos al siguiente nodo de iteración
++        }
++        return false; //Devolverá false si el parámetro del método no está contenido en mi lista
++           
++     
++	
+     }
+ 
+     /**
+@@ -161,7 +278,13 @@ public class ListaEstudiante {
+      * @return una nueva lista que es la reversa la que manda llamar el método.
+      */
+     public ListaEstudiante reversa() {
+-        // Aquí va su código.
++	ListaEstudiante reversa=new ListaEstudiante(); //Creamos un objeto de tipo Lista estudiante para devolver la reversa
++	Nodo iterable=cabeza; //Creamos un nodo de iteración para colocar la cabeza en el rabo
++	while(iterable!=null){ //Ciclo mientras que servirá para iterar sobre los elementos de mi lista original
++	    reversa.agregaInicio(iterable.elemento); //Agregamos al inicio los elementos que parten de la cabeza (asi se invierte el orden)
++	    iterable=iterable.siguiente; //Vamos al siguiente nodo de iteración
++	}
++        return reversa; //Devolvemos la lista volteada
+     }
+ 
+     /**
+@@ -170,14 +293,23 @@ public class ListaEstudiante {
+      * @return una copiad de la lista.
+      */
+     public ListaEstudiante copia() {
+-        // Aquí va su código.
++	ListaEstudiante copia = new ListaEstudiante(); //Creamos un nuevo objeto de tipo ListaEstudiante
++        Nodo iterable=cabeza; //Creamos un nodo de iteración para copiar desde el primer elemento de la lista
++        while (iterable!=null) {//Ciclo mientras (sirve para iterar hasta el rabo de mi lista original)
++            copia.agregaFinal(iterable.elemento);//Agrega al final de mi copia de la lista los elementos de mi lista original
++            iterable=iterable.siguiente;//Actualizamos el nodo de iteración al nodo siguiente de mi lista.
++        }
++        return copia; //Devolveremos la copia de la lista
++        
+     }
+ 
+     /**
+      * Limpia la lista de elementos, dejándola vacía.
+      */
+     public void limpia() {
+-        // Aquí va su código.
++	rabo=cabeza=null; //Borramos el primer y último elemento de la lista (referencia)
++	longitud=0; //Hacemos que la longitud sea de 0
++        
+     }
+ 
+     /**
+@@ -186,7 +318,13 @@ public class ListaEstudiante {
+      *         es vacía.
+      */
+     public Estudiante getPrimero() {
+-        // Aquí va su código.
++        if(esVacia()){
++	    return null;
++	}
++	else{
++
++	    return cabeza.elemento;
++	}
+     }
+ 
+     /**
+@@ -195,7 +333,12 @@ public class ListaEstudiante {
+      *         es vacía.
+      */
+     public Estudiante getUltimo() {
+-        // Aquí va su código.
++	if(esVacia()){
++	    return null;
++	}
++	else{
++        return rabo.elemento;
++	}
+     }
+ 
+     /**
+@@ -205,8 +348,16 @@ public class ListaEstudiante {
+      *         <em>i</em> es menor que cero o mayor o igual que el número de
+      *         elementos en la lista.
+      */
+-    public Estudiante get(int i) {
+-        // Aquí va su código.
++    public Estudiante get(int i){
++	if(i<0 || i>=longitud){ //si i es menor 0 y mayor que longitud devolvemos null
++	    return null;
++	}
++	Nodo iterable=cabeza; //Creamos un nodo para comenzar a iterar desde la cabeza 
++	for(int j=0; j<i; j++){ //Iteramos desde el primer elemento de la lista hasta llegar a antes que el indice deseado.
++	    iterable=iterable.siguiente; //Recorremos la lista
++	}
++	return iterable.elemento; //Devolvemos el iesimo elemento de la lista
++	  
+     }
+ 
+     /**
+@@ -216,7 +367,15 @@ public class ListaEstudiante {
+      *         no está contenido en la lista.
+      */
+     public int indiceDe(Estudiante elemento) {
+-        // Aquí va su código.
++        Nodo iterable = cabeza; //Creamos un objeto nodo que contentrá al primer elemento de la lista a fin de comenzar a iterar desde la cabeza
++        int indice = 0; //Inicializamos el índice en 0, ya que las listas en java inician en indice 0
++        while (iterable!=null) { //Ciclo para iterar en todos los elementos de mi lista 
++            if(iterable.elemento.equals(elemento)) //Si el estudiante (argumento de mi método) es igual a algún elemento de mi lista, devolverá el indice
++                return indice;
++            iterable=iterable.siguiente; //Actualizamos al nodo siguiente de mi lista
++            indice++; //Incrementamos el índice
++        }
++        return -1; //Si el elemento no está en la lista devuelve -1
+     }
+ 
+     /**
+@@ -224,7 +383,23 @@ public class ListaEstudiante {
+      * @return una representación en cadena de la lista.
+      */
+     public String toString() {
+-        // Aquí va su código.
++        if (esVacia()) //Si la lista es vacía devolvera corchetes vacíos, que corresponde a una lista vacía
++            return "[]";
++	String s = "["; //Iniciamos una cadena con un corchete abierto.
++	Nodo iterable=cabeza; //inicializamos un nodo de iteración que será el mismo que el primer elemento de mi lista
++	while(iterable!=null){//condición para iterar sobre todos los nodos de mi lista, cuando sea nulo significa que ya no hay mas elementos por delante de mi lista.
++	    s += String.format("%s", iterable.elemento); //esto lo saque de los tests, es el formato que pide, se añadira a mi lista el elemento de mi nodo de iteración 
++	    if(iterable.siguiente!=null){ //si mi nodo de iteración es diferente a nulo, añadira una coma ', ' y espacio
++		s+=", ";
++	    }
++	    
++	    iterable=iterable.siguiente;    //iteramos sobre el siguiente elemento de la lista, recordemos que el iterable apuntaba a la cabeza, si haciamos =cabeza.siguiente siempre iriamos al segundo elemento e la lista
++	   
++	}
++	s+="]"; //cerramos lista
++	return s; //devolvemos lista
++
++        
+     }
+ 
+     /**
+@@ -234,7 +409,21 @@ public class ListaEstudiante {
+      *         <code>false</code> en otro caso.
+      */
+     public boolean equals(ListaEstudiante lista) {
+-        // Aquí va su código.
++	if(lista==null){
++	    return false;
++	}
++        if(this.longitud!=lista.longitud){ //Si la longitud de las listas difiere, devolverá false
++	    return false;
++	}
++	Nodo nodo1 = this.cabeza; //Creamos un objeto de tipo nodo que contendrá el primer elemento de la lista original
++        Nodo nodo2 = lista.cabeza; //Creamos un objeto de tipo nodo que contendrá el primer elemento de la lista ingresada como parámetro
++        while (nodo1 != null && nodo2 != null) { //Mientras que los nodos no sean vacíos
++            if (!nodo1.elemento.equals(nodo2.elemento)) //Devuelve el elemento negado si mi elemento actual del nodo es diferente a mi elemento actual de la lista que ingrese como parámetro
++                return false; //Devuelve false
++            nodo1 = nodo1.siguiente; //Actualizamos al nodo siguiente de la lista
++            nodo2 = nodo2.siguiente;
++        }
++        return true; //Si las listas son iguales devolverá true
+     }
+ 
+     /**
+@@ -242,7 +431,7 @@ public class ListaEstudiante {
+      * @return el nodo cabeza de la lista.
+      */
+     public Nodo getCabeza() {
+-        // Aquí va su código.
++	return cabeza;
+     }
+ 
+     /**
+@@ -250,6 +439,6 @@ public class ListaEstudiante {
+      * @return el nodo rabo de la lista.
+      */
+     public Nodo getRabo() {
+-        // Aquí va su código.
++        return rabo;
+     }
+ }

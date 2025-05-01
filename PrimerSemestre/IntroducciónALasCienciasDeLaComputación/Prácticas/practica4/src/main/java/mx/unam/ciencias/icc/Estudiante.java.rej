@@ -1,0 +1,124 @@
+--- src/main/java/mx/unam/ciencias/icc/Estudiante.java
++++ src/main/java/mx/unam/ciencias/icc/Estudiante.java
+@@ -27,6 +27,10 @@ public class Estudiante {
+                       double promedio,
+                       int    edad) {
+         // Aquí va su código.
++	 this.nombre    = nombre;
++        this.cuenta    = cuenta;
++	this.promedio  = promedio;
++	this.edad      = edad; 
+     }
+ 
+     /**
+@@ -35,6 +39,7 @@ public class Estudiante {
+      */
+     public String getNombre() {
+         // Aquí va su código.
++	return nombre;
+     }
+ 
+     /**
+@@ -43,6 +48,7 @@ public class Estudiante {
+      */
+     public void setNombre(String nombre) {
+         // Aquí va su código.
++	this.nombre = nombre;
+     }
+ 
+     /**
+@@ -51,6 +57,7 @@ public class Estudiante {
+      */
+     public int getCuenta() {
+         // Aquí va su código.
++	return cuenta;
+     }
+ 
+     /**
+@@ -59,6 +66,7 @@ public class Estudiante {
+      */
+     public void setCuenta(int cuenta) {
+         // Aquí va su código.
++	this.cuenta = cuenta;
+     }
+ 
+     /**
+@@ -67,6 +75,7 @@ public class Estudiante {
+      */
+     public double getPromedio() {
+         // Aquí va su código.
++	return promedio;
+     }
+ 
+     /**
+@@ -75,6 +84,7 @@ public class Estudiante {
+      */
+     public void setPromedio(double promedio) {
+         // Aquí va su código.
++	this.promedio = promedio;
+     }
+ 
+     /**
+@@ -83,6 +93,7 @@ public class Estudiante {
+      */
+     public int getEdad() {
+         // Aquí va su código.
++	return edad;
+     }
+ 
+     /**
+@@ -91,28 +102,44 @@ public class Estudiante {
+      */
+     public void setEdad(int edad) {
+         // Aquí va su código.
++	this.edad = edad;
+     }
+ 
+     /**
+      * Regresa una representación en cadena del estudiante.
+      * @return una representación en cadena del estudiante.
+      */
+-    @Override public String toString() {
++    public String toString() {
+         // Aquí va su código.
++	 String cadena = String.format("Nombre   : %s\n" +
++                                      "Cuenta   : %09d\n" +
++                                      "Promedio : %2.2f\n" +
++                                      "Edad     : %d",
++                                      nombre, cuenta, promedio, edad);
++	return cadena;
+     }
+ 
+     /**
+-     * Nos dice si el objeto recibido es un estudiante igual al que manda llamar
+-     * el método.
+-     * @param objeto el objeto con el que el estudiante se comparará.
+-     * @return <code>true</code> si el objeto recibido es un estudiante con las
+-     *         mismas propiedades que el objeto que manda llamar al método,
++     * Nos dice si el estudiante recibido es igual al que manda llamar el
++     * método.
++     * @param estudiante el estudiante con el cual comparar.
++     * @return <code>true</code> si el estudiante recibido tiene las mismas
++     *         propiedades que el estudiante que manda llamar al método,
+      *         <code>false</code> en otro caso.
+      */
+-    @Override public boolean equals(Object objeto) {
+-        if (!(objeto instanceof Estudiante))
+-            return false;
+-        Estudiante estudiante = (Estudiante)objeto;
++    public boolean equals(Estudiante estudiante) {
+         // Aquí va su código.
++	 if (estudiante == null)
++	    {
++            return false;
++	    }
++	if (estudiante.getNombre().equals(nombre)&&
++	    estudiante.getCuenta() == cuenta &&
++	    estudiante.getPromedio() == promedio &&
++	    estudiante.getEdad() == edad){
++	    return true;
++	} else {
++	    return false;
++	}
+     }
+ }

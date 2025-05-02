@@ -1,0 +1,77 @@
+\documentclass{article}
+
+%Symbols
+\usepackage{recycle}
+
+%Margins
+\addtolength{\voffset}{-0.5cm}
+\addtolength{\hoffset}{-0.5cm}
+\addtolength{\textwidth}{1cm}
+\addtolength{\textheight}{1cm}
+
+%Header-Footer
+\usepackage{fancyhdr}
+%Header Info
+\lhead{Profesor: C\'esar Hern\'andez Cruz \\
+       Ayudante: I\~naki Cornejo de la Mora}
+\rhead{Gr\'aficas y Juegos 2025-2}
+%Footer Info
+\rfoot{\recycle}
+\cfoot{\vspace{-0.8cm}?`Realmente necesitas imprimir esta hoja?}
+\lfoot{\recycle}
+\pagenumbering{gobble}
+\footskip = 50pt
+\renewcommand{\headrulewidth}{1pt}
+\setlength{\headheight}{22.54448pt}
+
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+
+\pagestyle{fancyplain}
+
+\begin{document}
+\section*{\LARGE{Tarea 2}}
+
+
+\begin{enumerate}
+  \item Sea $D$ una digr\'afica de orden $n$.   Demuestre que si $D$ no tiene
+    ciclos dirigidos, entonces existe un orden total, $v_1, \dots, v_n$ de
+    $V_D$, tal que siempre que $(v_i, v_j)$ sea una flecha de $D$, se tiene que
+    $i < j$.
+
+  \item Demuestre que si $G$ tiene di\'ametro mayor que $3$, entonces
+    $\overline{G}$ tiene di\'ametro menor que $3$.
+
+  \item Sea $G$ una gr\'afica conexa.   Demuestre que si $G$ no es completa,
+    entonces contiente a $P_3$ como subgr\'afica inducida.
+
+  \item Demuestre que cualesquiera dos trayectorias de longitud m\'axima en una
+    gr\'afica conexa tienen un vértice en común.
+
+  \item Caracterice a las gr\'aficas $k$-regulares para $k \in \{ 0, 1, 2 \}$.
+
+  \item Demuestre que si $|E| \ge |V|$, entonces $G$ contiene un ciclo.
+\end{enumerate}
+
+\section*{Puntos extra}
+
+\begin{enumerate}
+  \item Sea $G$ una gr\'afica.   Demuestre que $G$ es $k$-partita completa si y
+    s\'olo si no contiene a $K_{k+1}$ ni a $\overline{P_3}$ como subgr\'aficas
+    inducidas.
+
+  \item Demuestre que si $G$ es una gr\'afica con $|V| \ge 4$ y $|E| > n^2/4$,
+    entonces $G$ contiene un ciclo impar.
+
+  \item Sea $d = (d_1, \dots, d_n)$ una sucesi\'on no creciente de enteros no
+    negativos.   Sea $d' = (d_2-1, \dots, d_{d_1+1}-1, d_{d_1+2}, \dots, d_n)$.
+    \begin{enumerate}
+      \item Demuestre que $d$ es gr\'afica si y s\'olo si $d'$ es gr\'afica.
+
+      \item Usando el primer inciso, describa un algoritmo que acepte como
+        entrada una sucesi\'on no creciente de enteros no negativos $d$ y
+        devuelva una gr\'afica simple con sucesi\'on de grados $d$, un
+        certificado de que $d$ no es gr\'afica.
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}

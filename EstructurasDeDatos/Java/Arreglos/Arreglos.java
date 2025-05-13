@@ -3,6 +3,7 @@ public class Arreglos {
     public static void saltoDeLinea(){
         System.out.printf("\n");
     }
+    
     public static void main(String[] args){
 
         /*Los arreglos usarlos preferentemente cuando:
@@ -37,9 +38,15 @@ public class Arreglos {
 
          int[][] matriz = {
             {1, 2, 3},
-            {4, 5, 6}
+            {4, 5, 6},
+            {7, 8, 9}
         };
-        
+
+        int filas = matriz.length; // filas = 3
+        System.out.println("Número de filas: " + filas);
+        int columnas = matriz[0].length; // columnas = 3 (asumiendo matriz rectangular)
+
+        System.out.println("Número de columnas: " + columnas);        
         System.out.println(matriz[1][2]); 
         
         saltoDeLinea();

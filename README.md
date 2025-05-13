@@ -1,4 +1,4 @@
-# Bienvenido a mi repositorio ![Carita Fiestera](image.png "Carita Fiestera")
+# 📘 Bienvenido a mi repositorio 
 
 ***
 

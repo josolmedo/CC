@@ -103,8 +103,8 @@ LIMIT 3;
 
 ### 5. Insertar nuevo cliente
 ```sql
-INSERT INTO clientes (nombre, apellido, edad, ciudad, init_date, email)
-VALUES ('Carlos', 'Ruiz', '28', 'Málaga', '16-11-2021', 'c.ruiz@mail.com');
+INSERT INTO hello_mysql.clientes (nombre, apellido, edad, ciudad, init_date, email)
+VALUES ('Carlos', 'Ruiz', 28, 'Málaga', '2021-11-16', 'c.ruiz@mail.com');
 ```
 | user_id | nombre | apellido  | edad | ciudad |init_date | email                                |
 | -- | ------ | --------- | ---| ----------|------------|----------------------------- |
@@ -121,7 +121,7 @@ UPDATE clientes
 SET ciudad = 'Bilbao'
 WHERE id = 5;
 ```
-## 7. Eliminar cliente id = 2
+### 7. Eliminar cliente id = 2
 ```sql
 DELETE FROM clientes
 WHERE id = 2;

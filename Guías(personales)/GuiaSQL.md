@@ -6,7 +6,7 @@ SQL (Structured Query Language) es el lenguaje estándar para comunicarse con ba
 
 💡 **Definición:** Lenguaje de programación para almacenar y procesar información en bases de datos relacionales.  
 
-📈 **Ventaja:** Es declarativo: describes qué datos necesitas, no cómo obtenerlos.
+📈 **Ventaja:** Es declarativo (describes qué datos necesitas, no cómo obtenerlos).
 
 ---
 
@@ -48,15 +48,15 @@ CREATE DATABASE hello_mysql
 ---
 ## ⚙️ Crear tabla:
 ```sql
-CREATE TABLE 'hello_mysql', 'clientes' (
-    'user_id' INT NOT NULL AUTO_INCREMENT,
-    'nombre' VARCHAR(50) NOT NULL,
-    'apellido' VARCHAR(100) NULL,
-    'edad' INT NULL,
-    'ciudad' VARCHAR(50) NULL,
-    'init_date' DATE NULL,
-    'email' VARCHAR(100) NULL,
-    PRIMARY KEY ('user_id'));
+CREATE TABLE hello_mysql.clientes (
+    user_id INT NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(100) NULL,
+    edad INT NULL,
+    ciudad VARCHAR(50) NULL,
+    init_date DATE NULL,
+    email VARCHAR(100) NULL,
+    PRIMARY KEY (user_id));
 ```
 ---
 ## 🔍 Consultas de ejemplo
@@ -95,7 +95,7 @@ ORDER BY nombre DESC;
 
 ### 4. Primeros 3 clientes por id
 ```sql
-SELECT id, nombre
+SELECT user_id, nombre
 FROM clientes
 ORDER BY id
 LIMIT 3;
@@ -119,12 +119,12 @@ VALUES ('Carlos', 'Ruiz', 28, 'Málaga', '2021-11-16', 'c.ruiz@mail.com');
 ```sql
 UPDATE clientes
 SET ciudad = 'Bilbao'
-WHERE id = 5;
+WHERE user_id = 5;
 ```
 ### 7. Eliminar cliente id = 2
 ```sql
 DELETE FROM clientes
-WHERE id = 2;
+WHERE user_id = 2;
 ```
 
 ---

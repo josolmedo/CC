@@ -38,13 +38,13 @@
 % Sobre mí
 \section{SOBRE MÍ}
 
-Pasante de ingeniería mecatrónica, estudiando segunda licenciatura en ciencias de la computación, con pasión por el desarrollo de software, la inteligencia artificial y robótica. Nivel avanzado de inglés (C1) y experiencia en proyectos tecnológicos multidisciplinarios.
+Pasante de ingeniería mecatrónica, estudiando una segunda licenciatura en ciencias de la computación, con pasión por el desarrollo de software, la inteligencia artificial y robótica. Nivel avanzado de inglés (C1) y experiencia en proyectos tecnológicos multidisciplinarios.
 
 % Educación
 \section{EDUCACIÓN} 
-\subheading{Ingeniería en Mecatrónica}{2019 -- 2024}
+\subheading{Ingeniería en Mecatrónica}{Agosto 2019 -- Mayo 2024}
 \textit{Universidad Nacional Autónoma de México} \\\\
-\subheading{Lic. en Ciencias de la Computación}{2024 -- Presente}
+\subheading{Lic. en Ciencias de la Computación}{Agosto 2024 -- Presente}
 \textit{Universidad Nacional Autónoma de México}
 % Habilidades
 \section{HABILIDADES BLANDAS}
@@ -57,7 +57,7 @@ Autodidacta $||$ Trabajo en equipo $||$ Proactividad $||$ Comunicación efectiva
     \item \textbf{Lenguajes: } C, C++, C\#, Java, Python, LaTeX, Markdown. 
     \item \textbf{Bases de datos: }  MySQL, PostgreSQL, SQLite. 
     \item \textbf{Microcontroladores: }  Arduino, Raspberry Pi Pico, ESP32. 
-    \item \textbf{Herramientas: }  Git, GitHub, Jira, Confluence, Power BI, Trello. 
+    \item \textbf{Herramientas: }  Git, GitHub, Jira, Confluence, Power BI, Trello, Notion. 
     \item \textbf{Data \& AI: }  NumPy, Pandas, PyTorch, OpenCV. 
     \item \textbf{Web: }  HTML, CSS, Flask, Tkinter. 
     \item \textbf{Sistemas: }  Windows, Linux (Ubuntu, Debian, Fedora). 
@@ -69,7 +69,7 @@ Automatización de procesos EUCs con SAS y Python\\
 Desarrollo de dashboards para análisis bancario (Python/Excel)\\
 Certificación de System Development Framework para Citibanamex\\\\
 \subheading{Servicio Social - IIMAS/UNAM}{Enero 2024 -- Junio 2024}
-Desarrollo de algoritmos de movimiento para robot móvil (Dijkstra) \\
+Desarrollo de algoritmos de movimiento para robot móvil (Campos potenciales, A*, Dijkstra) \\
 Visualización de espectrogramas para identificación de voz forense \\
 Soporte técnico en laboratorio de computación \\\\
 \subheading{Profesor de Matemáticas/Física}{Enero 2023 -- Enero 2024}

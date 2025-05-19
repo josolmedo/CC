@@ -36,15 +36,15 @@
 
 \vspace{0.1cm}
 % Sobre mí
-\section{SOBRE MÍ}
+\section{ABOUT ME}
 
-Mecatronics Engineering intern currently pursuing a second bachelor’s degree in Computer Science. Passionate about technology and software development, with advanced English proficiency (C1) and hands-on experience in artificial intelligence, web development, algorithm analysis, and robotics.
+Mecatronics Engineering intern, currently pursuing a second bachelor’s degree in Computer Science. Passionate about technology and software development, with advanced English proficiency (C1) and hands-on experience in artificial intelligence, web development, algorithm analysis, and robotics.
 
 % Educación
-\section{ABOUT ME} 
-\subheading{Bachelor of Science in Mechatronics Engineering}{2019 -- 2024}
+\section{EDUCATION} 
+\subheading{Bachelor of Science in Mechatronics Engineering}{August 2019 -- May 2024}
 \textit{Universidad Nacional Autónoma de México} \\\\
-\subheading{Bachelor of Science in Computer Science}{2024 -- Present}
+\subheading{Bachelor of Science in Computer Science}{August 2024 -- Present}
 \textit{Universidad Nacional Autónoma de México}
 % Habilidades
 \section{SOFT SKILLS}
@@ -54,53 +54,53 @@ Self-directed learning $||$ Teamwork $||$ Proactivity $||$ Effective communicati
 % Tecnologías
 \section{TECNOLOGIES}
 \begin{itemize}
-    \item \textbf{Lenguages: } C, C++, C\#, Java, Python, LaTeX, Markdown. 
-    \item \textbf{Bases de datos: }  MySQL, PostgreSQL, SQLite. 
-    \item \textbf{Microcontroladores: }  Arduino, Raspberry Pi Pico, ESP32. 
-    \item \textbf{Herramientas: }  Git, GitHub, Jira, Confluence, Power BI, Trello. 
+    \item \textbf{Languages: } C, C++, C\#, Java, Python, LaTeX, Markdown. 
+    \item \textbf{Data Bases: }  MySQL, PostgreSQL, SQLite. 
+    \item \textbf{Microcontrolers : }  Arduino, Raspberry Pi Pico, ESP32. 
+    \item \textbf{Tools: }  Git, GitHub, Jira, Confluence, Power BI, Trello, Notion. 
     \item \textbf{Data \& AI: }  NumPy, Pandas, PyTorch, OpenCV. 
     \item \textbf{Web: }  HTML, CSS, Flask, Tkinter. 
-    \item \textbf{Sistemas: }  Windows, Linux (Ubuntu, Debian, Fedora). 
+    \item \textbf{OS: }  Windows, Linux (Ubuntu, Debian, Fedora). 
 \end{itemize}
 % Experiencia
-\section{EXPERIENCIA}
-\subheading{Analista Programador - Banamex}{Junio 2024 -- Enero 2025}
-Automatización de procesos EUCs con SAS y Python\\
-Desarrollo de dashboards para análisis bancario (Python/Excel)\\
-Certificación de System Development Framework para Citibanamex\\\\
-\subheading{Servicio Social - IIMAS/UNAM}{Enero 2024 -- Junio 2024}
-Desarrollo de algoritmos de movimiento para robot móvil (Dijkstra) \\
-Visualización de espectrogramas para identificación de voz forense \\
-Soporte técnico en laboratorio de computación \\\\
-\subheading{Profesor de Matemáticas/Física}{Enero 2023 -- Enero 2024}
-Clases de regularización desde primaria hasta licenciatura \\
-Preparación para exámenes COMIPEMS y de admisión 
-\section{IDIOMAS}
-\textbf{Inglés: C1}
-\section{VOLUNTARIADO}
-\subheading{SIAFI - Sociedad de Inteligencia Artificial de la Facultad de Ingeniería}{Agosto 2022 -- Agosto 2023}
-Desarrollo de dron autónomo controlado por gestos empleando visión artificial.\\
-Sistema de traducción automatizado para lengua de señas mexicana.
+\section{EXPERIENCE}
+\subheading{Application Development Analyst Programmer II - Banamex}{June 2024 -- January 2025}
+Automated End-User Computing (EUC) processes using SAS and Python.\\
+Generated data-analysis reports on banking operations; built interactive dashboards with Python and Excel.\\
+Contributed to certifying the System Development Framework as the standard for EUC remediation tools.\\\\
+\subheading{Social Service Intern - IIMAS/UNAM}{January 2024 -- June 2024}
+Designed motion algorithms (potential fields, A*, Dijkstra) for a mobile educational robot. \\
+VCreated spectrogram visualizations for a forensic voice-identification system. \\
+Provided hardware and software support to laboratory users and computer systems. \\\\
+\subheading{Mathematics \& Physics tutor}{January 2023 -- January 2024}
+Delivered remedial classes from primary through university levels. \\
+Co-organized and taught COMIPEMS exam preparation and university-entrance review courses.
+\section{LANGUAGES}
+\textbf{English: C1}
+\section{VOLUNTEERING}
+\subheading{Society of Artificial Intelligence, UNAM Engineering Faculty (SIAFI)}{August 2022 -- August 2023}
+Autonomous Gesture-Controlled Drone: Developed vision-based gesture recognition and control.\\
+Mexican Sign-Language Translator: Built an automated translation prototype.
 
 % Proyectos y Cursos
-\section{PROYECTOS DESTACADOS}
+\section{PROJECTS}
 \begin{itemize}
-    \item Robot serial de 6GDL con control Bluetooth (C++/Arduino)
-    \item Sistema de registro de pasajeros con SIGFOX y app móvil
-    \item Modelo predictivo de glaucoma con machine learning (Python)
-    \item Diseño de un controlador por retroalimentación para péndulo invertido (Matlab)
-    \item Diseño, manufactura y ensamble de diversas piezas empleando máquinas CNC en torno, fresadora e impresión 3D.
-    \item Diseño, elaboración e implementación de un equipo que registra variables ambientales y detección de movimiento para visualizarse en una página web (Flask, HTML, CSS, Python, Arduino).
-    \item Varios ejercicios sobre análisis de datos, e implementaciones de algoritmos (busquedas, ordenamientos, machine learning) en Java, Python y C++.
+    \item Six-degree-of-freedom serial robot arm with Bluetooth mobile control.
+    \item Public-transport passenger registration SIGFOX wireless and mobile-app display.
+    \item CNC-machined component design and assembly (turning, milling, 3D printing).
+    \item Environmental sensor (temperature, humidity, motion) with web-based dashboard.
+    \item Machine-learning model to estimate glaucoma risk from medical history.
+    \item Algorithm implementations (search, sort, ML) in Java, Python, and C++.
+    \item State-feedback controller design for a Furuta pendulum (MATLAB).
     \end{itemize}
 
-\section{CURSOS}
+\section{PROFESSIONAL COURSES}
 \begin{itemize}
     \item Play It Safe: Manage Security Risks (Coursera, 11h)
     \item Foundations of Cybersecurity (Coursera, 6h)
-    \item Macroentrenamiento en IA (20h) - Red de Macro Universidades Públicas de América Latina y el Caribe.
+    \item Macro-training in Artificial Intelligence (20h) - Public Latin American Universities Network.
     \item Getting Started with Power BI Desktop (Coursera, 2h)
-    \item Robótica (20h) - Asociación de Robótica Aplicada y Ciencias de la Tecnología (ARACT)
+    \item Robotics (20h) - Applied Robotics Association (ARACT)
 \end{itemize}
 
 

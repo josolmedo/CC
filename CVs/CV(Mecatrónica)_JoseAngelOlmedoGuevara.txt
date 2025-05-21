@@ -1,0 +1,107 @@
+\documentclass[11pt,a4paper]{moderncv}
+\moderncvstyle{banking}                % Style options: casual, classic, banking, oldstyle, fancy
+\moderncvcolor{black}        % Color options: blue, orange, green, red, purple, grey, black\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{array}
+\usepackage{parskip}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\definecolor{accent}{RGB}{40,40,150}
+\setlist[itemize]{leftmargin=*, nosep}
+\newcommand{\heading}[1]{\textbf{\large\color{accent}#1}}
+\newcommand{\subheading}[2]{\textbf{#1} \hfill #2\\}
+\newcommand{\icontext}[2]{\makebox[1.5em][c]{#1} #2}
+
+\begin{document}
+
+% Header
+\begin{center}
+    \textbf{\Huge José Ángel Olmedo Guevara} \\
+    \vspace{0.2cm}
+    \icontext{\faPhone}{(55) 6074-7434} \quad
+    \icontext{\faEnvelope}{\href{mailto:joseangelolmedoguevara@gmail.com}{joseangelolmedoguevara@gmail.com}} \quad    
+    \icontext{\faGithub}{\href{https://github.com/josolmedo}{josolmedo}} \quad
+    \icontext{\faGlobe}{\href{https://josolmedo.github.io/}{josolmedo.github.io}}
+\end{center}
+
+\vspace{0.1cm}
+% Sobre mí
+\section{SOBRE MÍ}
+
+Pasante de Ingeniería Mecatrónica con gran interés en el desarrollo tecnológico, especialmente en áreas como manufactura, IoT, automatización y desarrollo de software. Nivel avanzado de inglés (C1) y experiencia en proyectos tecnológicos multidisciplinarios, enfocados en la innovación y la integración de soluciones.
+
+% Educación
+\section{EDUCACIÓN} 
+\subheading{Ingeniería en Mecatrónica}{2019 -- 2024}
+\textit{Universidad Nacional Autónoma de México} 
+% Habilidades
+\section{HABILIDADES BLANDAS}
+
+Autodidacta $||$ Trabajo en equipo $||$ Proactividad $||$ Comunicación efectiva $||$ Gestión del tiempo $||$ Adaptabilidad 
+
+% Tecnologías
+\section{TECNOLOGÍAS}
+\begin{itemize}
+    \item \textbf{Lenguajes: } C, C++, C\#, Java, Python, LaTeX, Markdown. 
+    \item \textbf{Bases de datos: }  MySQL, PostgreSQL, SQLite. 
+    \item \textbf{Microcontroladores: }  Arduino, Raspberry Pi Pico, ESP32. 
+    \item \textbf{Herramientas: }  Git, GitHub, BitBucket, Jira, Confluence, Power BI, Trello, Autodesk Inventor, ProModel, Fusion 360, Proteus, Multisim, Wolfram, Matlab, Paquetería Office (Excel, Word, PowerPoint). 
+    \item \textbf{Data \& AI: }  NumPy, Pandas, PyTorch, OpenCV. 
+    \item \textbf{Web: }  HTML, CSS, Flask, Tkinter. 
+    \item \textbf{Sistemas: }  Windows, Linux (Ubuntu, Debian, Fedora). 
+\end{itemize}
+% Experiencia
+\section{EXPERIENCIA}
+\subheading{Analista Programador - Banamex}{Junio 2024 -- Enero 2025}
+Apoyo en la automatización de procesos bancarios EUCs con SAS y Python.\\
+Desarrollo de dashboards (Python/Excel/Power BI) para análisis bancario realizando consultas con SQL y en documentos especializados con Excel.\\
+Coordinación de equipos de trabajo de distintas áreas para apoyar a la certificación del marco de trabajo System Development Framework para Citibanamex.\\\\
+\subheading{Servicio Social - IIMAS/UNAM}{Enero 2024 -- Junio 2024}
+Desarrollo e implementación de algoritmos de movimiento para robots móviles (Campos potenciales, A* y Dijkstra). \\
+Visualización de espectrogramas (Python) para la identificación de voz.  \\
+Soporte técnico en el laboratorio de computación (Apoyo en cableado, reparo y mantenimiento de impresoras, actualización de PCs e instalación de sistemas operativos). \\\\
+\subheading{Profesor de Matemáticas/Física}{Enero 2023 -- Enero 2024}
+Clases de regularización desde nivel primaria hasta licenciatura. \\
+Preparación para exámenes COMIPEMS y de admisión a universidad (IPN, UNAM).
+\section{IDIOMAS}
+\textbf{Inglés: C1}
+\section{VOLUNTARIADO}
+\subheading{SIAFI - Sociedad de Inteligencia Artificial de la Facultad de Ingeniería}{Agosto 2022 -- Agosto 2023}
+Desarrollo de dron autónomo controlado por gestos empleando visión artificial.\\
+Sistema de traducción automatizado para lengua de señas mexicana.
+
+
+
+% Proyectos y Cursos
+\section{PROYECTOS DESTACADOS}
+\begin{itemize}
+    \item Robot serial de 6GDL con control Bluetooth (C++/Arduino).
+    \item Sistema de registro de pasajeros con SIGFOX y app móvil.
+    \item Modelo predictivo de glaucoma con machine learning (Python).
+    \item Diseño de un controlador por retroalimentación para péndulo invertido (Matlab).
+    \item Diseño, manufactura y ensamble de diversas piezas empleando máquinas CNC en torno, fresadora e impresión 3D.
+    \item Diseño, elaboración e implementación de un equipo que registra variables ambientales y detección de movimiento para visualizarse en una página web (Flask, HTML, CSS, Python, Arduino).
+    \item Varios ejercicios sobre análisis de datos, e implementaciones de algoritmos (busquedas, ordenamientos, machine learning) en Java, Python y C++.
+    \end{itemize}
+
+\section{CURSOS}
+\begin{itemize}
+    \item Play It Safe: Manage Security Risks (Coursera, 11h).
+    \item Foundations of Cybersecurity (Coursera, 6h).
+    \item Macroentrenamiento en IA (20h) - Red de Macro Universidades Públicas de América Latina y el Caribe.
+    \item Getting Started with Power BI Desktop (Coursera, 2h).
+    \item Robótica (20h) - Asociación de Robótica Aplicada y Ciencias de la Tecnología (ARACT).
+\end{itemize}
+
+
+\end{document}

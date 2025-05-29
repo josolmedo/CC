@@ -1,0 +1,158 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage[top=1cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry} % Reducción del margen superior
+
+% Encabezado bonito
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{2pt} % eliminar línea de encabezado
+\setlength{\headheight}{30pt} % Ajusta la altura del encabezado
+\setlength{\headsep}{1cm}   % Ajusta la separación entre encabezado y texto
+\fancyhead[L]{Programación Orientada a Objetos} 
+\fancyhead[R]{Java}
+\cfoot{\thepage}
+
+% Estilo para títulos
+\titleformat{\section}{\large\bfseries\sffamily}{\thesection}{1em}{}
+
+% Configuración de listings para Java
+\definecolor{codegray}{gray}{0.95}
+\definecolor{javared}{rgb}{0.6,0,0} 
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35}
+\definecolor{javapurple}{rgb}{0.5,0,0.5}
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75}
+
+\lstdefinelanguage{Java}{
+  keywords={abstract, break, case, catch, class, const, continue, default, do, else,
+    extends, final, finally, for, if, implements, import, instanceof, interface,
+    native, new, null, package, private, protected, public, return, static,
+    strictfp, super, switch, synchronized, this, throw, throws, transient, try,
+    void, volatile, while},
+  keywordstyle=\color{javared}\bfseries,
+  commentstyle=\color{javagreen},
+  stringstyle=\color{javapurple},
+  morecomment=[s][\color{javadocblue}]{/**}{*/},
+  morecomment=[l][\color{javagreen}]{//},
+  backgroundcolor=\color{codegray},
+  showstringspaces=false,
+  basicstyle=\ttfamily\small,
+  tabsize=2,
+  captionpos=b
+}
+\renewcommand{\lstlistingname}{Ejemplo}
+
+\title{\Huge Programación Orientada a Objetos en Java}
+\author{José Ángel Olmedo Guevara}
+\date{}
+
+
+\begin{document}
+
+\maketitle
+
+\section*{Introducción}
+La Programación Orientada a Objetos (POO) es un paradigma de programación que organiza el código en unidades llamadas ``objetos'', que contienen atributos (variables de instancia), identidad (nombre), comportamientos(métodos).
+
+\section{Abstracción}
+La abstracción consiste en representar entidades del mundo real con clases, mostrando solo la información esencial e ignorando los detalles innecesarios.
+
+
+\begin{lstlisting}[language=Java, caption={Ejemplo de abstracción}]
+abstract class Animal {
+    private String nombre;
+    private int edad;
+
+    public Animal(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public abstract void hacerSonido();
+}
+\end{lstlisting}
+
+\newpage
+\section{Encapsulamiento}
+El encapsulamiento protege los datos del objeto, ocultando los atributos y exponiéndolos mediante métodos públicos (getters y setters).
+
+\begin{lstlisting}[language=Java, caption={Encapsulamiento con atributos privados}]
+public class CuentaBancaria {
+    private double saldo;
+
+    public CuentaBancaria(double saldoInicial) {
+        saldo = saldoInicial;
+    }
+
+    public void depositar(double cantidad) {
+        if (cantidad > 0) saldo += cantidad;
+    }
+
+    public void retirar(double cantidad) {
+        if (cantidad > 0 && cantidad <= saldo) saldo -= cantidad;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+}
+\end{lstlisting}
+\newpage
+\section{Herencia}
+La herencia permite que una clase herede atributos y métodos de otra clase, promoviendo la reutilización del código.
+
+\begin{lstlisting}[language=Java, caption={Ejemplo de herencia}]
+class Perro extends Animal {
+    public Perro(String nombre, int edad) {
+        super(nombre, edad);
+    }
+
+    @Override
+    public void hacerSonido() {
+        System.out.println(getNombre() + " dice: ¡Guau guau!");
+    }
+}
+
+class Gato extends Animal {
+    public Gato(String nombre, int edad) {
+        super(nombre, edad);
+    }
+
+    @Override
+    public void hacerSonido() {
+        System.out.println(getNombre() + " dice: ¡Miau!");
+    }
+}
+\end{lstlisting}
+
+\section{Polimorfismo}
+El polimorfismo permite que una misma interfaz o clase base se utilice para representar distintos comportamientos en clases derivadas.
+
+\begin{lstlisting}[language=Java, caption={Ejemplo de polimorfismo}]
+public class Main {
+    public static void main(String[] args) {
+        Animal miPerro = new Perro("Fido", 5);
+        Animal miGato = new Gato("Michi", 3);
+
+        miPerro.hacerSonido(); // Fido dice: ¡Guau guau!
+        miGato.hacerSonido();  // Michi dice: ¡Miau!
+    }
+}
+\end{lstlisting}
+
+\end{document}
+

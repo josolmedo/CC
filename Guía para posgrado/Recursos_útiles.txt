@@ -4,3 +4,8 @@ https://retosdeprogramacion.com/ejercicios
 
 Git: learngitbranching.js.org
 
+Estructuras de datos y algoritmos:
+https://www.youtube.com/c/MichaelSambol
+
+Ciencias de la computación:
+https://www.youtube.com/watch?v=LfaMVlDaQ24

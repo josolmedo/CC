@@ -1,0 +1,6 @@
+Ejercicios de programación: 
+https://exercism.org/dashboard
+https://retosdeprogramacion.com/ejercicios
+
+Git: learngitbranching.js.org
+

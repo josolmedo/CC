@@ -39,7 +39,7 @@
 % About Me
 \section{ABOUT ME}
 
-Mechatronics Engineering student with a strong interest in technological development, particularly in areas such as manufacturing, IoT, automation, and software development. Advanced English proficiency (C1) and experience in multidisciplinary technology projects focused on innovation and integrated solutions.
+Mechatronics Engineering student with a strong interest in technological development, particularly in areas such as Data Analysis, IoT, AI, and Software Development. Advanced English proficiency (C1) and experience in multidisciplinary technology projects managed with SCRUM methodology, focused on innovation and integrated solutions.
 
 % Education
 \section{EDUCATION} 
@@ -57,10 +57,11 @@ Self-taught $||$ Teamwork $||$ Proactivity $||$ Effective communication $||$ Tim
     \item \textbf{Languages:} C, C++, C\#, Java, Python, LaTeX, Markdown. 
     \item \textbf{Databases:} MySQL, PostgreSQL, SQLite. 
     \item \textbf{Microcontrollers:} Arduino, Raspberry Pi Pico, ESP32. 
-    \item \textbf{Tools:} Git, GitHub, BitBucket, Jira, Confluence, Power BI, Trello, Autodesk Inventor, ProModel, Fusion 360, Proteus, Multisim, Wolfram, Matlab, Office Suite (Excel, Word, PowerPoint). 
-    \item \textbf{Data \& AI:} NumPy, Pandas, PyTorch, OpenCV. 
+    \item \textbf{Tools:} Git, GitHub, BitBucket, Jira, Confluence, Spring Framework, Power BI, Trello, Autodesk Inventor, ProModel, Fusion 360, Proteus, Multisim, Wolfram, Matlab, Office Suite (Excel, Word, PowerPoint). 
+    \item \textbf{Data \& AI:} NumPy, Pandas, Scikit-learn, PyTorch, OpenCV. 
     \item \textbf{Web:} HTML, CSS, Flask, Tkinter. 
-    \item \textbf{OS:} Windows, Linux (Ubuntu, Debian, Fedora). 
+    \item \textbf{OS:} Windows, Linux (Ubuntu, Debian, Fedora).
+    \item \textbf{API's: } REST type development and integration.
 \end{itemize}
 
 % Experience
@@ -81,11 +82,25 @@ Test preparation for COMIPEMS and university entrance exams (IPN, UNAM).
 \section{LANGUAGES}
 \textbf{English: C1 (Advanced)}
 
+\newpage
+
 % Volunteering
 \section{VOLUNTEERING}
 \subheading{SIAFI - Artificial Intelligence Society, Faculty of Engineering}{August 2022 -- August 2023}
-Development of gesture-controlled autonomous drone using computer vision.\\
-Automated translation system for Mexican Sign Language.
+
+\textbf{Gesture-Controlled Autonomous Drone Development}
+\begin{itemize}
+    \item Developed computer vision system using OpenCV for real-time gesture recognition
+    \item Implemented machine learning algorithms with Scikit-learn for movement prediction
+    \item Integrated hardware control using Raspberry Pi and flight controllers
+\end{itemize}
+
+\textbf{\\Mexican Sign Language Translation System}
+\begin{itemize}
+    \item Designed neural network architecture with PyTorch for gesture classification
+    \item Developed machine learning pipelines using Scikit-learn
+    \item Used OpenCV for computer vision solution for real-time sign language interpretation
+\end{itemize}
 
 % Projects
 \section{KEY PROJECTS}

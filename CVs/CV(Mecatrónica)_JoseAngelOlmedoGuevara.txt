@@ -38,11 +38,11 @@
 % Sobre mí
 \section{SOBRE MÍ}
 
-Pasante de Ingeniería Mecatrónica con gran interés en el desarrollo tecnológico, especialmente en áreas como manufactura, IoT, automatización y desarrollo de software. Nivel avanzado de inglés (C1) y experiencia en proyectos tecnológicos multidisciplinarios, enfocados en la innovación y la integración de soluciones.
+Pasante de Ingeniería Mecatrónica con gran interés en el desarrollo tecnológico, especialmente en áreas como el análisis de datos, IoT, automatización y desarrollo de software. Nivel avanzado de inglés (C1) y experiencia en proyectos tecnológicos multidisciplinarios gestionados con metodología SCRUM, enfocados en la innovación y la integración de soluciones.
 
 % Educación
 \section{EDUCACIÓN} 
-\subheading{Ingeniería en Mecatrónica}{2019 -- 2024}
+\subheading{Ingeniería en Mecatrónica}{Agosto 2019 -- Mayo 2024}
 \textit{Universidad Nacional Autónoma de México} 
 % Habilidades
 \section{HABILIDADES BLANDAS}
@@ -55,10 +55,11 @@ Autodidacta $||$ Trabajo en equipo $||$ Proactividad $||$ Comunicación efectiva
     \item \textbf{Lenguajes: } C, C++, C\#, Java, Python, LaTeX, Markdown. 
     \item \textbf{Bases de datos: }  MySQL, PostgreSQL, SQLite. 
     \item \textbf{Microcontroladores: }  Arduino, Raspberry Pi Pico, ESP32. 
-    \item \textbf{Herramientas: }  Git, GitHub, BitBucket, Jira, Confluence, Power BI, Trello, Autodesk Inventor, ProModel, Fusion 360, Proteus, Multisim, Wolfram, Matlab, Paquetería Office (Excel, Word, PowerPoint). 
-    \item \textbf{Data \& AI: }  NumPy, Pandas, PyTorch, OpenCV. 
+    \item \textbf{Herramientas: }  Git, GitHub, BitBucket, Jira, Confluence, Spring Framework, Power BI, Trello, Autodesk Inventor, ProModel, Fusion 360, Proteus, Multisim, Wolfram, Matlab, Paquetería Office (Excel, Word, PowerPoint). 
+    \item \textbf{Data \& AI: }  NumPy, Pandas, Scikit-learn, PyTorch, OpenCV. 
     \item \textbf{Web: }  HTML, CSS, Flask, Tkinter. 
-    \item \textbf{Sistemas: }  Windows, Linux (Ubuntu, Debian, Fedora). 
+    \item \textbf{Sistemas: }  Windows, Linux (Ubuntu, Debian, Fedora).
+    \item \textbf{API's: } Desarrollo e integración de tipo REST.
 \end{itemize}
 % Experiencia
 \section{EXPERIENCIA}
@@ -76,9 +77,21 @@ Preparación para exámenes COMIPEMS y de admisión a universidad (IPN, UNAM).
 \section{IDIOMAS}
 \textbf{Inglés: C1}
 \section{VOLUNTARIADO}
-\subheading{SIAFI - Sociedad de Inteligencia Artificial de la Facultad de Ingeniería}{Agosto 2022 -- Agosto 2023}
-Desarrollo de dron autónomo controlado por gestos empleando visión artificial.\\
-Sistema de traducción automatizado para lengua de señas mexicana.
+\subheading{SIAFI - Sociedad de Inteligencia Artificial, Facultad de Ingeniería}{Agosto 2022 -- Agosto 2023}
+
+\textbf{Desarrollo de dron autónomo controlado por gestos}
+\begin{itemize}
+    \item Implementé sistema de visión por computadora usando OpenCV para reconocimiento de gestos en tiempo real
+    \item Implementé algoritmos de aprendizaje automático con Scikit-learn para clasificación de movimientos
+    \item Integré control hardware utilizando Raspberry Pi para los motores durante el vuelo
+\end{itemize}
+
+\textbf{\\Sistema de traducción de Lengua de Señas Mexicana}
+\begin{itemize}
+    \item Desarrollé arquitectura de red neuronal con PyTorch para clasificación de gestos
+    \item Creé flujos de trabajo de aprendizaje automático usando Scikit-learn
+    \item Implementé de visión por computadora (OpenCV) para identificación de gestos en tiempo real
+\end{itemize}
 
 
 

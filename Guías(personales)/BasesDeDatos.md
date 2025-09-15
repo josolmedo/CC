@@ -35,7 +35,7 @@ Las aplicaciones que se desarrollan sobre una base de datos dependen fundamental
 ---
 ## Diseño de una BD
 
-![Fases del diseño](URL_de_la_imagen "Título opcional")
+![Fases del diseño](/DiseñoBD.jpg "Fases del diseño")
 
 ---
 ## 🤖 ¿Qué es SQL y para qué se usa?
@@ -361,3 +361,4 @@ Tabla `ordenes`
 | Ana    | Ratón    |
 
 ---
+

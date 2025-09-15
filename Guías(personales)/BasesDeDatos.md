@@ -5,183 +5,359 @@
 Una base de datos (BD o DB, por sus siglas en inglés) es una herramienta diseñada para para el almacenamiento, consulta y organización de la información. Para poder realizar operaciones sobre los datos que forman dicha infromación es necesario hacer uso de un Sistema de Gestión de Bases de Datos (SGBD o DBMS, por sus siglas en inglés)
 
 ---
-Un SGBD es un paquete de software diseñado para almacenar y administrar BD,
+Un SGBD es un paquete de software diseñado para almacenar y administrar BD, existen varios en el mercado (Oracle, DB2, SQL Server, PostgreSQL, MySQL, MariaDB, SQLite, ...). Actúa también, como un guardián de la integridad de los datos, previniendo fallos lógicos y la duplicación de la información, lo que garantiza que los datos sean fiables y consistentes. Sin un SGDB, la base de datos sería simplemente una colección de archivos sin las funcionalidades de gestión y seguridad que la convierten en un activo estratégico
 
-## Features
+---
+## Enfoque de elaboración de una base de datos
 
-- Import a HTML file and watch it magically convert to Markdown
-- Drag and drop images (requires your Dropbox account be linked)
-- Import and save files from GitHub, Dropbox, Google Drive and One Drive
-- Drag and drop markdown and HTML files into Dillinger
-- Export documents as Markdown, HTML and PDF
+Para construir una base de datos se requiere hacer un modelado de requerimientos (conceptual, gráfico), se decide cuáles datos deben ser parte de la aplicación y cómo relacionarlas. Dichos datos se clasifican en "ítems básicos" (entidades), "atributos" (características de esos ítems) y "relaciones" (conexiones lógicas entre los ítems). La organización de estos elementos conforma el esquema lógico de la base de datos, que es el mapa conceptual de cómo se estructuran y se interconectan los datos. 
 
-Markdown is a lightweight markup language based on the formatting conventions
-that people naturally use in email.
-As [John Gruber] writes on the [Markdown site][df1]
+---
+## Beneficios de una base de datos
 
-> The overriding design goal for Markdown's
-> formatting syntax is to make it as readable
-> as possible. The idea is that a
-> Markdown-formatted document should be
-> publishable as-is, as plain text, without
-> looking like it's been marked up with tags
-> or formatting instructions.
+- Datos integrados y compartidos
+- Restricciones de acceso
+- Restricciones de integridad
+- Proporciona respaldo y recuperación
+- Reducción de tiempo de desarrollo
+- Disponibilidad de datos actualizados
 
-This text you see here is *actually- written in Markdown! To get a feel
-for Markdown's syntax, type some text into the left window and
-watch the results in the right.
+---
+## Independencia
+Es importante mantener una independencia entre los distintos niveles de la BD.
+La **independencia de datos** es la capacidad de modificar la definición del esquema en un nivel sin que esto afecte a las definición de esquemas en niveles superiores.
 
-## Tech
+- **Independencia lógica**: Las aplicaciones de usuario son inmunes a los cambios en la estructura lógica (cambios en la definición del esquema de la BD).
+- **Independencia física**: Los detalles sobre las estructuras de almacenamiento de los datos son invisibles  las capas superiores.
 
-Dillinger uses a number of open source projects to work properly:
+Las aplicaciones que se desarrollan sobre una base de datos dependen fundamentalmente del nivel lógico (de qué es lo que se almacena).
 
-- [AngularJS] - HTML enhanced for web apps!
-- [Ace Editor] - awesome web-based text editor
-- [markdown-it] - Markdown parser done right. Fast and easy to extend.
-- [Twitter Bootstrap] - great UI boilerplate for modern web apps
-- [node.js] - evented I/O for the backend
-- [Express] - fast node.js network app framework [@tjholowaychuk]
-- [Gulp] - the streaming build system
-- [Breakdance](https://breakdance.github.io/breakdance/) - HTML
-to Markdown converter
-- [jQuery] - duh
+---
+## Diseño de una BD
 
-And of course Dillinger itself is open source with a [public repository][dill]
- on GitHub.
+![Fases del diseño](URL_de_la_imagen "Título opcional")
 
-## Installation
+---
+## 🤖 ¿Qué es SQL y para qué se usa?
 
-Dillinger requires [Node.js](https://nodejs.org/) v10+ to run.
+SQL (Structured Query Language) es el lenguaje estándar para comunicarse con bases de datos relacionales. 
 
-Install the dependencies and devDependencies and start the server.
+💡 **Definición:** Lenguaje de programación para almacenar y procesar información en bases de datos relacionales.  
 
-```sh
-cd dillinger
-npm i
-node app
+📈 **Ventaja:** Es declarativo (describes qué datos necesitas, no cómo obtenerlos).
+
+---
+
+## 🔧 Conceptos básicos de bases de datos relacionales
+
+| Concepto        | Descripción                                                                                     |
+|-----------------|-------------------------------------------------------------------------------------------------|
+| **Tabla**       | Conjunto de datos estructurados en filas y columnas.                                            |
+| **Fila / Registro** | Instancia de datos (una entrada concreta).                                                  |
+| **Columna / Campo** | Atributo o categoría de datos (ej. “nombre”, “precio”).                                     |
+| **Clave primaria**  | Campo (o conjunto de campos) que identifica **única** y **no nula** cada fila (`PRIMARY KEY`). |
+| **Clave foránea**   | Campo que referencia la clave primaria de otra tabla, estableciendo una relación.           |
+
+---
+
+## 📋 Comandos básicos de consulta
+
+```sql
+SELECT columnas           -- Qué columnas obtener
+DISTINCT columnas         -- Filtra los valores únicos de las comumnas seleccionadas
+FROM tabla                -- De qué tabla
+WHERE condición           -- Filtrar filas
+ORDER BY columna [DESC]   -- Ordenar resultados
+LIMIT número              -- Límite de filas a devolver
+UPDATE tabla              -- Qué tabla quieres actualizar
+SET columas               -- Valores de las columnas a actualizar
+GROUP BY columnas         -- Agrupa filas con base en columnas
+AS alias                  -- Asigna un alias a una columna
+HAVING condición          -- Filtrar resultados que utiliza GROUP BY
+INNER JOIN tabla          -- Combinar filas de dos o más tablas, basándose en una columna común entre ellas
+ON condición              -- Condición para unir dos o más tablas, va después de JOIN
+LIKE patrón               -- Busca patrones de texto en una columna 
+```
+---
+## 👍 Comando `LIKE:`
+
+La cláusula LIKE utiliza los siguientes operadores de búsqueda:
+
+| Comodín | Significado                                 | Ejemplo                                               |
+| ------- | ------------------------------------------- | ----------------------------------------------------- |
+| `%`     | Cualquier secuencia de caracteres (0 o más) | `'Ana%'` encuentra `'Ana'`, `'Anabel'`, `'Ana María'` |
+| `_`     | Cualquier carácter individual               | `'A_a'` encuentra `'Ana'`, `'Ava'`, `'Aja'`           |
+
+### ✅ Resumen: 
+
+| Quieres buscar...                                       | Usa `LIKE` con... |
+| ------------------------------------------------------- | ----------------- |
+| Que **empiece por** algo                                | `'texto%'`        |
+| Que **termine en** algo                                 | `'%texto'`        |
+| Que **contenga** algo                                   | `'%texto%'`       |
+| Que tenga un **carácter específico** en cierta posición | `'A_a%'`          |
+
+
+---
+## 💾 Crear base de datos
+
+```sql
+CREATE DATABASE hello_mysql
 ```
 
-For production environments...
+---
+## ⚙️ Crear tabla:
+```sql
+CREATE TABLE hello_mysql.clientes (
+    user_id INT NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(100) NULL,
+    edad INT NULL,
+    ciudad VARCHAR(50) NULL,
+    init_date DATE NULL,
+    email VARCHAR(100) NULL,
+    PRIMARY KEY (user_id));
+```
+---
+## 🔍 Consultas de ejemplo
 
-```sh
-npm install --production
-NODE_ENV=production node app
+| user_id | nombre | apellido  | edad | ciudad |init_date | email                                |
+| -- | ------ | --------- | ---| ----------|------------|----------------------------- |
+| 1  | Ana    | López     | 20 | Madrid    | 25-05-2020 | [ana.lopez@mail.com](mailto:ana.lopez@mail.com)     |
+| 2  | Juan   | Pérez     | 23 | Valencia  | 22-04-2023 | [juanp@mail.com](mailto:juanp@mail.com)             |
+| 3  | Luis   | García    | 35 | Sevilla   | 18-10-2024 | [luis.garcia@mail.com](mailto:luis.garcia@mail.com) |
+| 4  | María  | Fernández | 45 | Madrid    | 1-08-2022  | [maria@mail.com](mailto:maria@mail.com)             |
+| 5  | Luis   | Giménez   | 19 | Barcelona | 5-07-2025  | [lgimenez@mail.com](mailto:lgimenez@mail.com)       |
+
+
+
+### 1. Todos los clientes:
+
+```sql
+SELECT * 
+FROM clientes;
 ```
 
-## Plugins
-
-Dillinger is currently extended with the following plugins.
-Instructions on how to use them in your own application are linked below.
-
-| Plugin | README |
-| ------ | ------ |
-| Dropbox | [plugins/dropbox/README.md][PlDb] |
-| GitHub | [plugins/github/README.md][PlGh] |
-| Google Drive | [plugins/googledrive/README.md][PlGd] |
-| OneDrive | [plugins/onedrive/README.md][PlOd] |
-| Medium | [plugins/medium/README.md][PlMe] |
-| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
-
-## Development
-
-Want to contribute? Great!
-
-Dillinger uses Gulp + Webpack for fast developing.
-Make a change in your file and instantaneously see your updates!
-
-Open your favorite Terminal and run these commands.
-
-First Tab:
-
-```sh
-node app
+### 2. Nombre y ciudad de clientes en Madrid
+```sql
+SELECT nombre, ciudad
+FROM clientes
+WHERE ciudad = 'Madrid';
 ```
 
-Second Tab:
-
-```sh
-gulp watch
+### 3. Clientes con apellido que empiece por “G”, orden descendente
+```sql
+SELECT nombre, ciudad
+FROM clientes
+WHERE apellido LIKE 'G%'
+ORDER BY nombre DESC;
 ```
 
-(optional) Third:
-
-```sh
-karma test
+### 4. Primeros 3 clientes por id
+```sql
+SELECT user_id, nombre
+FROM clientes
+ORDER BY id
+LIMIT 3;
 ```
 
-#### Building for source
+### 5. Insertar nuevo cliente
+```sql
+INSERT INTO hello_mysql.clientes (nombre, apellido, edad, ciudad, init_date, email)
+VALUES ('Carlos', 'Ruiz', 28, 'Málaga', '2021-11-16', 'c.ruiz@mail.com');
+```
+| user_id | nombre | apellido  | edad | ciudad |init_date | email                                |
+| -- | ------ | --------- | ---| ----------|------------|----------------------------- |
+| 1  | Ana    | López     | 20 | Madrid    | 25-05-2020 | [ana.lopez@mail.com](mailto:ana.lopez@mail.com)     |
+| 2  | Juan   | Pérez     | 23 | Valencia  | 22-04-2023 | [juanp@mail.com](mailto:juanp@mail.com)             |
+| 3  | Luis   | García    | 35 | Sevilla   | 18-10-2024 | [luis.garcia@mail.com](mailto:luis.garcia@mail.com) |
+| 4  | María  | Fernández | 45 | Madrid    | 1-08-2022  | [maria@mail.com](mailto:maria@mail.com)             |
+| 5  | Luis   | Giménez   | 19 | Barcelona | 5-07-2025  | [lgimenez@mail.com](mailto:lgimenez@mail.com)       |
+| 6  | Carlos | Ruiz      | 28 | Malaga    | 16-11-2021 | [c.ruiz@mail.com](mailto:c.ruiz@mail.com)           |
 
-For production release:
-
-```sh
-gulp build --prod
+### 6. Actualizar ciudad de id = 5
+```sql
+UPDATE clientes
+SET ciudad = 'Bilbao'
+WHERE user_id = 5;
+```
+### 7. Eliminar cliente id = 2
+```sql
+DELETE FROM clientes
+WHERE user_id = 2;
 ```
 
-Generating pre-built zip archives for distribution:
+---
 
-```sh
-gulp build dist --prod
+## 🔗 Operadores lógicos en SQL: `AND`, `OR`, `NOT`
+
+En SQL, los operadores lógicos te permiten **combinar condiciones** dentro de una cláusula `WHERE`. Son fundamentales para realizar búsquedas más precisas.
+
+| Operador | Función                                          | Sintaxis                                          | Ejemplo                                                                                   |
+|----------|--------------------------------------------------|---------------------------------------------------|-------------------------------------------------------------------------------------------|
+| **AND**  | Devuelve TRUE solo si **todas** las condiciones son verdaderas. | `cond1 AND cond2`                                  | `WHERE ciudad = 'Madrid' AND edad > 30`                                                   |
+| **OR**   | Devuelve TRUE si **al menos una** condición es verdadera.      | `cond1 OR cond2`                                   | `WHERE ciudad = 'Madrid' OR ciudad = 'Barcelona'`                                         |
+| **NOT**  | Devuelve TRUE si la condición es **falsa**.                    | `NOT cond`                                         | `WHERE NOT ciudad = 'Sevilla'`                                                            |
+| **Paréntesis** | Controlan el **orden de evaluación** de operadores lógicos.   | `(cond1 AND cond2) OR cond3`                       | `WHERE ciudad = 'Madrid' AND (edad > 30 OR nombre = 'Ana')`                               |
+
+
+
+
+
+---
+
+## 🎯 Filtrado avanzado con operadores
+
+### Operadores comunes
+
+| Operador | Descripción                        | Ejemplo                         |
+|----------|------------------------------------|---------------------------------|
+| `=`      | Igual a                            | `ciudad = 'Madrid'`            |
+| `!=` o `<>` | Distinto de                    | `ciudad != 'Madrid'`           |
+| `>`      | Mayor que                          | `id > 3`                        |
+| `<`      | Menor que                          | `id < 3`                        |
+| `>=`     | Mayor o igual                      | `id >= 2`                       |
+| `<=`     | Menor o igual                      | `id <= 4`                       |
+| `LIKE`   | Coincidencia parcial               | `apellido LIKE 'G%'`           |
+| `IN`     | Dentro de un conjunto              | `ciudad IN ('Madrid', 'Sevilla')` |
+| `BETWEEN`| Dentro de un rango (inclusive)     | `id BETWEEN 2 AND 4`           |
+
+---
+
+## 🪜 Funciones de agregación
+
+Las funciones de agregación trabajan sobre conjuntos de filas y devuelven un solo valor.
+
+| Función   | Descripción                     |
+|-----------|---------------------------------|
+| `COUNT()` | Cuenta filas                    |
+| `SUM()`   | Suma valores                    |
+| `AVG()`   | Promedio                       |
+| `MIN()`   | Valor mínimo                    |
+| `MAX()`   | Valor máximo                    |
+
+### Ejemplo:
+```sql
+SELECT COUNT(*) AS total_clientes
+FROM clientes;
 ```
 
-## Docker
+- ¿Qué hace? Cuenta todas las filas de la tabla clientes.
 
-Dillinger is very easy to install and deploy in a Docker container.
+`COUNT(*) cuenta cuántos registros hay en total.`
+`AS total_clientes le pone un alias (nombre temporal) a la columna del resultado.`
 
-By default, the Docker will expose port 8080, so change this within the
-Dockerfile if necessary. When ready, simply use the Dockerfile to
-build the image.
+Resultado ejemplo:
+| total\_clientes |
+| --------------- |
+| 5               |
 
-```sh
-cd dillinger
-docker build -t <youruser>/dillinger:${package.json.version} .
+
+```sql
+SELECT ciudad, COUNT(*) AS clientes_por_ciudad
+FROM clientes
+GROUP BY ciudad;
 ```
 
-This will create the dillinger image and pull in the necessary dependencies.
-Be sure to swap out `${package.json.version}` with the actual
-version of Dillinger.
+- ¿Qué hace? Agrupa los registros por la columna ciudad.
 
-Once done, run the Docker image and map the port to whatever you wish on
-your host. In this example, we simply map port 8000 of the host to
-port 8080 of the Docker (or whatever port was exposed in the Dockerfile):
+Para cada ciudad, cuenta cuántos clientes hay, devuelve una tabla con:
 
-```sh
-docker run -d -p 8000:8080 --restart=always --cap-add=SYS_ADMIN --name=dillinger <youruser>/dillinger:${package.json.version}
+`El nombre de cada ciudad.`
+`La cantidad de clientes en esa ciudad.`
+| ciudad   | clientes\_por\_ciudad |
+| -------- | --------------------- |
+| Madrid   | 2                     |
+| Sevilla  | 1                     |
+| Valencia | 2                     |
+
+---
+
+## 🧲 Agrupaciones con GROUP BY y filtros con HAVING
+
+- `GROUP BY:` agrupa resultados según una o más columnas.
+- `HAVING:` filtra grupos (se usa después de **GROUP BY**)
+
+```sql
+SELECT ciudad, COUNT(*) AS total
+FROM clientes
+GROUP BY ciudad
+HAVING total > 1;
 ```
+✅ ¿Qué hace cada parte?
 
-> Note: `--capt-add=SYS-ADMIN` is required for PDF rendering.
+| Línea                              | Explicación                                                         |
+| ---------------------------------- | ------------------------------------------------------------------- |
+| `SELECT ciudad, COUNT(*) AS total` | Selecciona la ciudad y la cantidad de clientes en esa ciudad.       |
+| `FROM clientes`                    | Usa la tabla `clientes`.                                            |
+| `GROUP BY ciudad`                  | Agrupa los registros por ciudad (una fila por ciudad).              |
+| `HAVING total > 1`                 | Filtra los grupos y **solo muestra ciudades con más de 1 cliente**. |
 
-Verify the deployment by navigating to your server address in
-your preferred browser.
 
-```sh
-127.0.0.1:8000
+📊 Resultado de la consulta:
+
+| ciudad   | total |
+| -------- | ----- |
+| Madrid   | 2     |
+
+
+---
+
+## 🧱 Relaciones entre tablas con JOIN
+
+- Tipos principales de `JOIN:`
+
+| Tipo de JOIN | Descripción                                                             |
+| ------------ | ----------------------------------------------------------------------- |
+| `INNER JOIN` | Solo filas que coinciden en ambas tablas.                               |
+| `LEFT JOIN`  | Todas las filas de la tabla izquierda + coincidencias.                  |
+| `RIGHT JOIN` | Todas las filas de la tabla derecha + coincidencias.                    |
+| `FULL JOIN`  | Todas las filas de ambas tablas (si está disponible en tu sistema SQL). |
+
+- Ejemplo: Supón dos tablas 
+
+`clientes(id, nombre)`  
+`ordenes(id, cliente_id, producto)`
+
+```sql
+SELECT clientes.nombre, ordenes.producto
+FROM clientes
+INNER JOIN ordenes
+ON clientes.id = ordenes.cliente_id;
 ```
+📘 Explicación detallada:
 
-## License
+| Parte del código                           | Significado                                                                                             |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
+| `SELECT clientes.nombre, ordenes.producto` | Selecciona las columnas que se mostrarán: el nombre del cliente y el producto que pidió.                |
+| `FROM clientes`                            | Especifica la tabla principal: `clientes`.                                                              |
+| `INNER JOIN ordenes`                       | Realiza una **unión interna**: solo combinará las filas donde hay coincidencias.                        |
+| `ON clientes.id = ordenes.cliente_id`      | Define la condición para unir: el ID del cliente debe coincidir con el campo `cliente_id` en `ordenes`. |
 
-MIT
+🧾 Ejemplo:
 
-**Free Software, Hell Yeah!**
+Tabla `clientes:`
 
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
+| id | nombre |
+| -- | ------ |
+| 1  | Ana    |
+| 2  | Luis   |
+| 3  | Marta  |
 
-   [dill]: <https://github.com/joemccann/dillinger>
-   [git-repo-url]: <https://github.com/joemccann/dillinger.git>
-   [john gruber]: <http://daringfireball.net>
-   [df1]: <http://daringfireball.net/projects/markdown/>
-   [markdown-it]: <https://github.com/markdown-it/markdown-it>
-   [Ace Editor]: <http://ace.ajax.org>
-   [node.js]: <http://nodejs.org>
-   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
-   [jQuery]: <http://jquery.com>
-   [@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
-   [express]: <http://expressjs.com>
-   [AngularJS]: <http://angularjs.org>
-   [Gulp]: <http://gulpjs.com>
+Tabla `ordenes`
 
-   [PlDb]: <https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md>
-   [PlGh]: <https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md>
-   [PlGd]: <https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md>
-   [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
-   [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
-   [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
+| id | producto | cliente\_id |
+| -- | -------- | ----------- |
+| 1  | Laptop   | 1           |
+| 2  | Teclado  | 2           |
+| 3  | Ratón    | 1           |
+
+📊 Resultado:
+
+| nombre | producto |
+| ------ | -------- |
+| Ana    | Laptop   |
+| Luis   | Teclado  |
+| Ana    | Ratón    |
+
+---
